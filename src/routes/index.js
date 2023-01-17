@@ -1,5 +1,5 @@
 import TelaInicial from "../pages/telaInicial";
-import Menu from "../pages/menu";
+import Pagvenda from "../pages/pagVenda";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 export default function StackNavigation() {
   const navigation = useNavigation();
   const navegar = () => {
-    navigation.navigate("Menu");
+    navigation.navigate("Pagvenda");
   };
 
   return (
@@ -42,7 +42,7 @@ export default function StackNavigation() {
           ),
         }}
       />
-      <Stack.Screen name="Menu" component={Menu} />
+      <Stack.Screen name="Pagvenda" component={Pagvenda} />
     </Stack.Navigator>
   );
 }

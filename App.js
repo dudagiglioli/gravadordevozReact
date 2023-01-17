@@ -1,6 +1,6 @@
 import React from "react";
 import TelaInicial from "./src/pages/telaInicial";
-import Menu from "./src/pages/menu";
+import Pagvenda from "./src/pages/pagVenda";
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigation from "./src/routes";
 
