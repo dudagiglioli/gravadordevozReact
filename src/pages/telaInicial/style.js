@@ -8,41 +8,70 @@ const styles = StyleSheet.create({
 
   icon: {
     margin: 15,
-    marginTop: 30,
-    bottom: 13,
+    marginTop: 40,
+    bottom: 20,
+    right: -48,
   },
 
-  easy: {
-    color: "#C0C0C0",
-    marginTop: 10,
-    margin: 60,
-    padding: 25,
-    fontSize: 30,
-    bottom: 132,
-  },
-
-  recorder: {
-    color: "black",
-    fontSize: 30,
-    fontWeight: "500",
-  },
-
-  pro: {
-    color: "white",
-    fontSize: 18,
-  },
-
-  button: {
-    backgroundColor: "#708090",
-    paddingHorizontal: 15,
-    padding: 8,
-    borderRadius: 7,
+  gravar: {
+    width: 49,
+    height: 50,
+    top: 17,
+    left: 76,
     position: "absolute",
-    height: 40,
-    alignItems: "center",
-    justifyContent: "center",
+    fontFamily: "Sofia Sans",
+    fontSize: 17,
+    color: "#3B3355",
+    fontWeight: "500",
+    lineHeight: 20,
     right: 12,
-    bottom: 737,
+    marginTop: 20,
+  },
+
+  ouvir: {
+    position: "absolute",
+    with: 49,
+    height: 50,
+    left: 275,
+    top: 17,
+    fontFamily: "Sofia Sans",
+    fontWeight: "500",
+    fontSize: 17,
+    lineHeight: 20,
+    color: "rgba(59, 51, 85, 0.45)",
+    marginTop: -109,
+  },
+
+  timer: {
+    position: "absolute",
+    width: 180,
+    height: 129,
+    left: 148,
+    top: 300,
+    fontFamily: "Sofia Sans",
+    fontWeight: "500",
+    fontSize: 50,
+    lineHeight: 100,
+    color: "#3B3355",
+  },
+
+  text: {
+    position: "absolute",
+    width: 180,
+    height: 129,
+    left: 154,
+    top: 335,
+    fontFamily: "Sofia Sans",
+    fontWeight: "500",
+    fontSize: 12.5,
+    lineHeight: 100,
+    color: "rgba(59, 51, 85, 0.45)",
+  },
+
+  icon2: {
+    top: 560,
+    left: 165,
+    color: "#BFCDE0",
   },
 });
 

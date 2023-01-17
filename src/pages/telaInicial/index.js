@@ -1,27 +1,32 @@
 import styles from "./style";
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import EvilIcons from "react-native-vector-icons/EvilIcons";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function TelaInicial() {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.icon}>
-        <EvilIcons
+      <TouchableOpacity>
+        <Text style={styles.gravar}>Gravar</Text>
+        <AntDesign
+          name="minus"
+          color={"#3B3355"}
+          size={75}
           style={styles.icon}
-          name="navicon"
-          color={"black"}
-          size={60}
         />
       </TouchableOpacity>
-      <Text style={styles.easy}>
-        Easy
-        <Text style={styles.recorder}>Recorder</Text>
-      </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.pro}>Seja Pro</Text>
+      <TouchableOpacity>
+        <Text style={styles.ouvir}>Ouvir</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.timer}>00:00</Text>
+
+      <Text style={styles.text}>Pronto para começar</Text>
+
+      <TouchableOpacity>
+        <Ionicons name="ios-mic-circle" size={90} style={styles.icon2} />
       </TouchableOpacity>
     </View>
   );
