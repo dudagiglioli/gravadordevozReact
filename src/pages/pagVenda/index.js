@@ -80,12 +80,17 @@ export default function Pagvenda() {
         </View>
       </ImageBackground>
 
-      <TouchableOpacity>
-        <View>
-          <Text style={styles.text3}>4,99</Text>
-          <Text style={styles.text4}>Mensal</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.linha2}>
+        <Text style={styles.text3}>4,99</Text>
+        <Text style={styles.text3}>15,99</Text>
+        <Text style={styles.text5}>29,99</Text>
+      </View>
+
+      <View style={styles.linha2}>
+        <Text style={styles.text4}>Mensal</Text>
+        <Text style={styles.text4}>Anual</Text>
+        <Text style={styles.vitalicio}>Vitalício</Text>
+      </View>
 
       <View style={styles.linha}>
         <TouchableOpacity>
