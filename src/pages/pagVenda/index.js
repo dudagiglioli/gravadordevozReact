@@ -8,13 +8,101 @@ import {
 import React from "react";
 import styles from "./style";
 import Entypo from "react-native-vector-icons/Entypo";
+import EvilIcons from "react-native-vector-icons/EvilIcons";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Pagvenda() {
+  const navigation = useNavigation();
+  const Navegar = () => {
+    navigation.goBack();
+  };
+  //goBack - voltar p a pagInicial, ou seja a principal ("uma atrás")
+
   return (
     <View style={styles.container}>
-      <Entypo name="circle" size={18} color={"#5D5D81"} style={styles.icon} />
+      <ImageBackground
+        style={styles.background}
+        source={require("../../assets/images/background.png")}
+      >
+        <TouchableOpacity onPress={() => Navegar()} style={styles.icon}>
+          <EvilIcons name="close-o" color={"white"} size={60} />
+        </TouchableOpacity>
+
+        <Ionicons name="ios-mic-circle" size={64} style={styles.icon2} />
+
+        <Text style={styles.easy}>Easy</Text>
+        <Text style={styles.recorder}>Recorder</Text>
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-around",
+            height: 75,
+            top: 120,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "#D9D9D9",
+              flex: 0.2,
+              borderRadius: 8,
+              height: 120,
+              left: -75,
+            }}
+          />
+          <View
+            style={{
+              backgroundColor: "#D9D9D9",
+              flex: 0.3,
+              height: 120,
+              borderRadius: 8,
+              left: -50,
+            }}
+          />
+          <View
+            style={{
+              backgroundColor: "#D9D9D9",
+              flex: 0.3,
+              height: 120,
+              borderRadius: 8,
+              left: -23,
+            }}
+          />
+          <View
+            style={{
+              backgroundColor: "#D9D9D9",
+              flex: 0.2,
+              height: 120,
+              borderRadius: 8,
+            }}
+          />
+        </View>
+      </ImageBackground>
+
+      <TouchableOpacity>
+        <View>
+          <Text style={styles.text3}>4,99</Text>
+          <Text style={styles.text4}>Mensal</Text>
+        </View>
+      </TouchableOpacity>
+
+      <View style={styles.linha}>
+        <TouchableOpacity>
+          <Entypo name="circle" size={18} color={"#5D5D81"} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Entypo name="circle" size={18} color={"#5D5D81"} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Entypo name="circle" size={18} color={"#5D5D81"} />
+        </TouchableOpacity>
+      </View>
+
       <TouchableOpacity style={styles.touch}>
-        <Text style={styles.text2}>Continuar</Text>
+        <Text style={styles.text2} onPress={() => Navegar()}>
+          Continuar
+        </Text>
       </TouchableOpacity>
 
       <Text style={styles.text}>

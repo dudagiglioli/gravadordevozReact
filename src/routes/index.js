@@ -1,5 +1,6 @@
 import TelaInicial from "../pages/telaInicial";
 import Pagvenda from "../pages/pagVenda";
+import Configuracoes from "../pages/configuracoes";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
@@ -42,7 +43,14 @@ export default function StackNavigation() {
           ),
         }}
       />
-      <Stack.Screen name="Pagvenda" component={Pagvenda} />
+      <Stack.Screen
+        name="Pagvenda"
+        component={Pagvenda}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="Configuracoes" component={Configuracoes} />
     </Stack.Navigator>
   );
 }

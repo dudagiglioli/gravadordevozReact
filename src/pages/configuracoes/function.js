@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 
-export function Navegar(navigation) {
+export function navegar(navigation) {
   navigation.navigate("TelaInicial");
-  navigation.navigate("Configuracoes");
 }

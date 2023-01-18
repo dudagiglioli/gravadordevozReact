@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 7,
     height: 30,
+    top: 2,
   },
 
   pro: {
