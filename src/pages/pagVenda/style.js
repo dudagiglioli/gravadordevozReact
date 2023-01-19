@@ -6,36 +6,44 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
+  linearGradient: {
+    height: 370,
+    width: 500,
+    opacity: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   background: {
-    opacity: 0.9,
-    flex: 0.57,
+    flex: 1,
   },
 
   icon: {
     flexDirection: "row-reverse",
-    top: 50,
-    right: 15,
+    top: 10,
+    left: 100,
   },
 
   icon2: {
+    top: 188,
+    left: -180,
     color: "#BFCDE0",
-    top: 238,
-    left: 40,
   },
 
   easy: {
-    color: "#C0C0C0",
-    left: 98,
+    color: "#BFCDE0",
+    left: -100,
     fontSize: 43,
-    top: 173,
+    top: 120,
+    fontWeight: "400",
   },
 
   recorder: {
-    color: "black",
+    color: "#3B3355",
     fontSize: 43,
     fontWeight: "500",
-    top: 115,
-    left: 190,
+    top: 62,
+    left: 35,
   },
 
   rectangle: {
@@ -48,8 +56,8 @@ const styles = StyleSheet.create({
     color: "#5D5D81",
     fontWeight: "450",
     fontSize: 30,
-    top: 140,
-    left: 20,
+    top: 10,
+    left: -1,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -58,8 +66,8 @@ const styles = StyleSheet.create({
     color: "#5D5D81",
     fontWeight: "300",
     fontSize: 25,
-    top: 140,
-    left: 15,
+    top: 15,
+    left: 3,
     textAlign: "center",
   },
 
@@ -67,8 +75,8 @@ const styles = StyleSheet.create({
     color: "#5D5D81",
     fontWeight: "500",
     fontSize: 35,
-    top: 140,
-    left: 15,
+    top: 9,
+    left: -0.5,
     alignItems: "center",
   },
 
@@ -76,8 +84,8 @@ const styles = StyleSheet.create({
     color: "#5D5D81",
     fontWeight: "450",
     fontSize: 25,
-    top: 140,
-    left: 15,
+    top: 10,
+    left: -0.5,
     textAlign: "center",
   },
 
@@ -87,28 +95,61 @@ const styles = StyleSheet.create({
     left: 15,
     margin: 3,
     width: 380,
-    top: 250,
+    top: -10,
     textAlign: "justify",
     lineHeight: 15,
     justifyContent: "flex-end",
   },
 
   text2: {
-    color: "black",
+    color: "white",
     fontSize: 20,
   },
 
-  linha2: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    top: 50,
+  text6: {
+    color: "#5D5D81",
+    fontWeight: "205",
+    fontSize: 20,
+    top: 4,
+    left: -0.5,
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: "red",
+  },
+
+  linha2: {
+    top: 151,
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "#5D5D81",
+    left: 20,
+    width: 100,
+    borderRadius: 10,
+    height: 110,
+  },
+
+  linha3: {
+    top: 40,
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "#5D5D81",
+    left: 150,
+    width: 100,
+    borderRadius: 10,
+    height: 110,
+  },
+
+  linha4: {
+    top: -80,
+    alignItems: "center",
+    borderWidth: 4,
+    borderColor: "#5D5D81",
+    left: 280,
+    width: 120,
+    borderRadius: 10,
+    height: 130,
   },
 
   touch: {
-    top: 230,
+    top: -25,
     left: 20,
     width: 380,
     color: "black",
@@ -121,7 +162,16 @@ const styles = StyleSheet.create({
   linha: {
     flexDirection: "row",
     justifyContent: "space-around",
-    top: 200,
+    top: -50,
+  },
+
+  linhav: {
+    backgroundColor: "#918DA0",
+    width: 60,
+    height: 2,
+    left: 310,
+    top: -190,
+    transform: [{ rotateY: "1deg" }, { rotateZ: "15deg" }],
   },
 });
 

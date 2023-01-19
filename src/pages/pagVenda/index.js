@@ -11,6 +11,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import LinearGradient from "react-native-linear-gradient";
 
 export default function Pagvenda() {
   const navigation = useNavigation();
@@ -25,72 +26,85 @@ export default function Pagvenda() {
         style={styles.background}
         source={require("../../assets/images/background.png")}
       >
-        <TouchableOpacity onPress={() => Navegar()} style={styles.icon}>
-          <EvilIcons name="close-o" color={"white"} size={60} />
-        </TouchableOpacity>
-
-        <Ionicons name="ios-mic-circle" size={64} style={styles.icon2} />
-
-        <Text style={styles.easy}>Easy</Text>
-        <Text style={styles.recorder}>Recorder</Text>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-around",
-            height: 75,
-            top: 120,
-          }}
+        <LinearGradient
+          colors={["transparent", "white"]}
+          start={{ x: 1, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.linearGradient}
         >
+          <TouchableOpacity onPress={() => Navegar()} style={styles.icon}>
+            <EvilIcons name="close-o" color={"white"} size={60} />
+          </TouchableOpacity>
+
+          <Ionicons name="ios-mic-circle" size={64} style={styles.icon2} />
+
+          <Text style={styles.easy}>Easy</Text>
+          <Text style={styles.recorder}>Recorder</Text>
+
           <View
             style={{
-              backgroundColor: "#D9D9D9",
-              flex: 0.2,
-              borderRadius: 8,
-              height: 120,
-              left: -75,
+              flexDirection: "row",
+              justifyContent: "space-around",
+              height: 75,
+              top: 70,
             }}
-          />
-          <View
-            style={{
-              backgroundColor: "#D9D9D9",
-              flex: 0.3,
-              height: 120,
-              borderRadius: 8,
-              left: -50,
-            }}
-          />
-          <View
-            style={{
-              backgroundColor: "#D9D9D9",
-              flex: 0.3,
-              height: 120,
-              borderRadius: 8,
-              left: -23,
-            }}
-          />
-          <View
-            style={{
-              backgroundColor: "#D9D9D9",
-              flex: 0.2,
-              height: 120,
-              borderRadius: 8,
-            }}
-          />
-        </View>
+          >
+            <View
+              style={{
+                backgroundColor: "#D9D9D9",
+                flex: 0.2,
+                borderRadius: 8,
+                height: 130,
+                left: -75,
+              }}
+            />
+            <View
+              style={{
+                backgroundColor: "#D9D9D9",
+                flex: 0.3,
+                height: 130,
+                borderRadius: 8,
+                left: -50,
+              }}
+            />
+            <View
+              style={{
+                backgroundColor: "#D9D9D9",
+                flex: 0.3,
+                height: 130,
+                borderRadius: 8,
+                left: -23,
+              }}
+            />
+            <View
+              style={{
+                backgroundColor: "#D9D9D9",
+                flex: 0.2,
+                height: 130,
+                borderRadius: 8,
+              }}
+            />
+          </View>
+        </LinearGradient>
       </ImageBackground>
 
       <View style={styles.linha2}>
         <Text style={styles.text3}>4,99</Text>
-        <Text style={styles.text3}>15,99</Text>
-        <Text style={styles.text5}>29,99</Text>
+        <Text style={styles.text4}>Mensal</Text>
       </View>
 
-      <View style={styles.linha2}>
-        <Text style={styles.text4}>Mensal</Text>
+      <View style={styles.linha3}>
+        <Text style={styles.text3}>15,99</Text>
         <Text style={styles.text4}>Anual</Text>
+      </View>
+
+      <View style={styles.linha4}>
+        <Text style={styles.text6}>39,99</Text>
+        <Text style={styles.text5}>29,99</Text>
         <Text style={styles.vitalicio}>Vitalício</Text>
       </View>
+
+      <View style={styles.linhav} />
 
       <View style={styles.linha}>
         <TouchableOpacity>
@@ -104,11 +118,13 @@ export default function Pagvenda() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.touch}>
-        <Text style={styles.text2} onPress={() => Navegar()}>
-          Continuar
-        </Text>
-      </TouchableOpacity>
+      <LinearGradient style={styles.touch} colors={["#BFCDE0", "#5D5D81"]}>
+        <TouchableOpacity>
+          <Text style={styles.text2} onPress={() => Navegar()}>
+            Continuar
+          </Text>
+        </TouchableOpacity>
+      </LinearGradient>
 
       <Text style={styles.text}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

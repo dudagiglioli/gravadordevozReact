@@ -4,6 +4,7 @@ import Configuracoes from "../pages/configuracoes";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, Text } from "react-native";
@@ -12,8 +13,8 @@ const Stack = createNativeStackNavigator();
 
 export default function StackNavigation() {
   const navigation = useNavigation();
-  const navegar = () => {
-    navigation.navigate("Pagvenda");
+  const navegar = (tela) => {
+    navigation.navigate(tela, {});
   };
 
   return (
@@ -33,11 +34,15 @@ export default function StackNavigation() {
                 name="navicon"
                 color={"black"}
                 size={60}
+                onPress={() => navegar("Configurações")}
               />
             </TouchableOpacity>
           ),
           headerRight: () => (
-            <TouchableOpacity onPress={() => navegar()} style={styles.button}>
+            <TouchableOpacity
+              onPress={() => navegar("Pagvenda")}
+              style={styles.button}
+            >
               <Text style={styles.pro}>Seja Pro</Text>
             </TouchableOpacity>
           ),
@@ -50,7 +55,7 @@ export default function StackNavigation() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="Configuracoes" component={Configuracoes} />
+      <Stack.Screen name="Configurações" component={Configuracoes} />
     </Stack.Navigator>
   );
 }
