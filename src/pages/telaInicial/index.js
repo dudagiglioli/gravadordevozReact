@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import LinearGradient from "react-native-linear-gradient";
 
 export default function TelaInicial() {
   return (
@@ -25,9 +26,11 @@ export default function TelaInicial() {
 
       <Text style={styles.text}>Pronto para começar</Text>
 
-      <TouchableOpacity>
-        <Ionicons name="ios-mic-circle" size={90} style={styles.icon2} />
-      </TouchableOpacity>
+      <LinearGradient style={styles.icon2} colors={["#BFCDE0", "#5D5D81"]}>
+        <TouchableOpacity>
+          <Ionicons name="mic" size={60} />
+        </TouchableOpacity>
+      </LinearGradient>
     </View>
   );
 }

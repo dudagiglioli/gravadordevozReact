@@ -25,9 +25,13 @@ const styles = StyleSheet.create({
   },
 
   icon2: {
-    top: 188,
-    left: -180,
-    color: "#BFCDE0",
+    top: 178,
+    left: -178,
+    borderRadius: 70,
+    height: 48,
+    width: 48,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   easy: {
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
     color: "#5D5D81",
     fontWeight: "500",
     fontSize: 35,
-    top: 9,
+    top: 7,
     left: -0.5,
     alignItems: "center",
   },
@@ -98,7 +102,6 @@ const styles = StyleSheet.create({
     top: -10,
     textAlign: "justify",
     lineHeight: 15,
-    justifyContent: "flex-end",
   },
 
   text2: {

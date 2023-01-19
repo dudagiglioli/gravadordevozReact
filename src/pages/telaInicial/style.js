@@ -69,9 +69,13 @@ const styles = StyleSheet.create({
   },
 
   icon2: {
-    top: 560,
-    left: 165,
-    color: "#BFCDE0",
+    top: 500,
+    left: 160,
+    borderRadius: 70,
+    height: 80,
+    width: 80,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

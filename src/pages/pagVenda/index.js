@@ -1,10 +1,4 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import { ImageBackground, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./style";
 import Entypo from "react-native-vector-icons/Entypo";
@@ -36,7 +30,9 @@ export default function Pagvenda() {
             <EvilIcons name="close-o" color={"white"} size={60} />
           </TouchableOpacity>
 
-          <Ionicons name="ios-mic-circle" size={64} style={styles.icon2} />
+          <LinearGradient style={styles.icon2} colors={["#BFCDE0", "#5D5D81"]}>
+            <Ionicons name="mic" size={30} />
+          </LinearGradient>
 
           <Text style={styles.easy}>Easy</Text>
           <Text style={styles.recorder}>Recorder</Text>
