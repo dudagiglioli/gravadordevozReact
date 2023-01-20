@@ -40,7 +40,7 @@ export default function StackNavigation() {
           ),
           headerRight: () => (
             <TouchableOpacity
-              onPress={() => navegar("Ouvir")}
+              onPress={() => navegar("Pagvenda")}
               style={styles.button}
             >
               <Text style={styles.pro}>Seja Pro</Text>

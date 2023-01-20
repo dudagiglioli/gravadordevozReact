@@ -4,8 +4,13 @@ import React from "react";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
 
 export default function TelaInicial() {
+  const navigation = useNavigation();
+  const navegar = (tela) => {
+    navigation.navigate(tela, {});
+  };
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -18,7 +23,7 @@ export default function TelaInicial() {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navegar("Ouvir")}>
         <Text style={styles.ouvir}>Ouvir</Text>
       </TouchableOpacity>
 
