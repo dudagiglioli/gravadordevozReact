@@ -176,6 +176,14 @@ const styles = StyleSheet.create({
     top: -190,
     transform: [{ rotateY: "1deg" }, { rotateZ: "15deg" }],
   },
+
+  valores: {
+    flex: 1,
+  },
+
+  inicio: {
+    flex: 1,
+  },
 });
 
 export default styles;

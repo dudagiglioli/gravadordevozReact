@@ -1,27 +1,31 @@
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import React, { useState } from "react";
 import styles from "./style";
+import { Item } from "./function";
 import LinearGradient from "react-native-linear-gradient";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Feather from "react-native-vector-icons/Feather";
+import Entypo from "react-native-vector-icons/Entypo";
 import { Slider } from "@miblanchard/react-native-slider";
 
-const ARRAY = [
-  {
-    id: "1",
-    nome: "Teste.mp4",
-    data: "12/01/2023",
-    hora: "14:50",
-    kb: "46,21Kb",
-    tipo: "Estudo",
-    timer: "00:45",
-  },
-];
-
-function renderItem({ item }) {
-  return <Item data={item} />;
-}
 export default function Audio() {
+  const ARRAY = [
+    {
+      id: "1",
+      nome: "Teste.mp4",
+      data: "12/01/2023",
+      hora: "  14:50",
+      kb: "  46,21Kb",
+      tipo: "Estudo",
+      timer: "  00:45",
+    },
+  ];
+
+  function renderItem({ item }) {
+    return <Item data={item} />;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -34,7 +38,27 @@ export default function Audio() {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.meio}></View>
+      <View style={styles.meio}>
+        <FlatList
+          data={ARRAY}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+
+        <Feather
+          name="scissors"
+          color={"rgba(59, 51, 85, 1)"}
+          size={20}
+          style={styles.tesoura}
+        />
+
+        <Entypo
+          name="dots-three-vertical"
+          size={20}
+          color={"rgba(59, 51, 85, 1)"}
+          style={styles.ponto}
+        />
+      </View>
 
       <LinearGradient style={styles.footer} colors={["#BFCDE0", "#5D5D81"]}>
         <View style={styles.view}>
