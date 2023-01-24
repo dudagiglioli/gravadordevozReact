@@ -10,25 +10,8 @@ import Entypo from "react-native-vector-icons/Entypo";
 import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
 
-function usePlayerState() {
-  const [playerState, setPlayerSatate] = useState({
-    playing: false,
-  });
-
-  function toggleMusicPlay() {
-    setPlayerSatate({
-      ...playerState,
-      playing: !playerState.playing,
-    });
-  }
-
-  return {
-    playerState,
-    toggleMusicPlay,
-  };
-}
-
 export default function Audio() {
+  const [playerState, setPlayerSatate] = useState(false);
   const navigation = useNavigation();
   const navegar = (tela) => {
     navigation.navigate(tela, {});
@@ -45,11 +28,12 @@ export default function Audio() {
     },
   ];
 
+  function toggleMusicPlay() {
+    setPlayerSatate(!playerState);
+  }
   function renderItem({ item }) {
     return <Item data={item} />;
   }
-
-  const { playerState, toggleMusicPlay } = usePlayerState();
 
   return (
     <View style={styles.container}>
@@ -112,12 +96,12 @@ export default function Audio() {
           </TouchableOpacity>
 
           <TouchableOpacity onPress={toggleMusicPlay}>
-            {playerState.playing ? (
-              <AntDesign name="playcircleo" size={80} color={"white"} />
+            {playerState ? (
+              <Ionicons name="play-circle-outline" size={100} color={"white"} />
             ) : (
               <Ionicons
                 name="ios-stop-circle-outline"
-                size={80}
+                size={100}
                 color={"white"}
               />
             )}
