@@ -11,6 +11,7 @@ import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Audio() {
+  const [gravarState, setGravarState] = useState(false);
   const [playerState, setPlayerSatate] = useState(false);
   const navigation = useNavigation();
   const navegar = (tela) => {
@@ -31,6 +32,11 @@ export default function Audio() {
   function toggleMusicPlay() {
     setPlayerSatate(!playerState);
   }
+
+  function gravar() {
+    setGravarState(!gravarState);
+  }
+
   function renderItem({ item }) {
     return <Item data={item} />;
   }

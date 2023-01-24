@@ -94,6 +94,26 @@ export default function DrawerNavigation() {
       />
 
       <Drawer.Screen
+        name="Perguntas Frequentes"
+        component={""}
+        options={{
+          drawerIcon: ({ size }) => (
+            <AntDesign name="setting" size={size} color="black" />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        name="Mais Apps"
+        component={""}
+        options={{
+          drawerIcon: ({ size }) => (
+            <AntDesign name="setting" size={size} color="black" />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
         name="Ouvir"
         component={Audio}
         options={{
@@ -113,7 +133,7 @@ export default function DrawerNavigation() {
           headerRight: () => (
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.goBack()}
+              onPress={() => navegar("Pagvenda")}
             >
               <Text style={styles.pro}>Seja Pro</Text>
             </TouchableOpacity>
