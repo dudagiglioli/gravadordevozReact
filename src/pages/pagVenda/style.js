@@ -20,13 +20,11 @@ const styles = StyleSheet.create({
 
   icon: {
     flexDirection: "row-reverse",
-    top: 10,
     left: 100,
+    top: -50,
   },
 
   icon2: {
-    top: 178,
-    left: -178,
     borderRadius: 70,
     height: 48,
     width: 48,
@@ -36,9 +34,7 @@ const styles = StyleSheet.create({
 
   easy: {
     color: "#BFCDE0",
-    left: -100,
     fontSize: 43,
-    top: 120,
     fontWeight: "400",
   },
 
@@ -46,8 +42,6 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 43,
     fontWeight: "500",
-    top: 62,
-    left: 35,
   },
 
   rectangle: {
@@ -99,7 +93,6 @@ const styles = StyleSheet.create({
     left: 15,
     margin: 3,
     width: 380,
-    top: -10,
     textAlign: "justify",
     lineHeight: 15,
   },
@@ -119,40 +112,33 @@ const styles = StyleSheet.create({
   },
 
   linha2: {
-    top: 151,
     alignItems: "center",
     borderWidth: 2,
     borderColor: "#5D5D81",
-    left: 20,
     width: 100,
     borderRadius: 10,
     height: 110,
   },
 
   linha3: {
-    top: 40,
     alignItems: "center",
     borderWidth: 2,
     borderColor: "#5D5D81",
-    left: 150,
     width: 100,
     borderRadius: 10,
     height: 110,
   },
 
   linha4: {
-    top: -80,
     alignItems: "center",
     borderWidth: 4,
     borderColor: "#5D5D81",
-    left: 280,
     width: 120,
     borderRadius: 10,
     height: 130,
   },
 
   touch: {
-    top: -25,
     left: 20,
     width: 380,
     color: "black",
@@ -165,24 +151,41 @@ const styles = StyleSheet.create({
   linha: {
     flexDirection: "row",
     justifyContent: "space-around",
-    top: -50,
+    flex: 0.2,
   },
 
   linhav: {
     backgroundColor: "#918DA0",
     width: 60,
-    height: 2,
-    left: 310,
-    top: -190,
+    height: 1,
     transform: [{ rotateY: "1deg" }, { rotateZ: "15deg" }],
+    top: -90,
   },
 
   valores: {
     flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    top: 50,
   },
 
   inicio: {
-    flex: 1,
+    flex: 1.2,
+  },
+
+  footer: {
+    flex: 0.5,
+    bottom: 0,
+  },
+
+  meio: {
+    flex: 0.3,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    top: 80,
+    left: -50,
   },
 });
 

@@ -30,6 +30,11 @@ export default function DrawerNavigation() {
         name="EasyRecorder"
         component={TelaInicial}
         options={{
+          headerTitle: () => (
+            <Text style={styles.easy}>
+              Easy<Text style={styles.recorder}>Recorder</Text>
+            </Text>
+          ),
           title: () => (
             <View style={styles.view}>
               <Text style={styles.easy}>
@@ -92,6 +97,11 @@ export default function DrawerNavigation() {
         name="Ouvir"
         component={Audio}
         options={{
+          headerTitle: () => (
+            <Text style={styles.easy}>
+              Easy<Text style={styles.recorder}>Recorder</Text>
+            </Text>
+          ),
           drawerIcon: ({ size }) => (
             <Entypo name="sound-mix" size={size} color="black" />
           ),

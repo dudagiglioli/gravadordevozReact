@@ -13,29 +13,29 @@ export default function TelaInicial() {
   };
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <Text style={styles.gravar}>Gravar</Text>
-        <AntDesign
-          name="minus"
-          color={"#3B3355"}
-          size={75}
-          style={styles.icon}
-        />
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navegar("Ouvir")}>
-        <Text style={styles.ouvir}>Ouvir</Text>
-      </TouchableOpacity>
-
-      <Text style={styles.timer}>00:00</Text>
-
-      <Text style={styles.text}>Pronto para começar</Text>
-
-      <LinearGradient style={styles.icon2} colors={["#BFCDE0", "#5D5D81"]}>
+      <View style={styles.header}>
         <TouchableOpacity>
-          <Ionicons name="mic" size={60} />
+          <Text style={styles.gravar}>Gravar</Text>
         </TouchableOpacity>
-      </LinearGradient>
+
+        <TouchableOpacity onPress={() => navegar("Ouvir")}>
+          <Text style={styles.ouvir}>Ouvir</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.meio}>
+        <Text style={styles.timer}>00:00</Text>
+
+        <Text style={styles.text}>Pronto para começar</Text>
+      </View>
+
+      <View style={styles.footer}>
+        <LinearGradient style={styles.icon2} colors={["#BFCDE0", "#5D5D81"]}>
+          <TouchableOpacity>
+            <Ionicons name="mic" size={60} />
+          </TouchableOpacity>
+        </LinearGradient>
+      </View>
     </View>
   );
 }

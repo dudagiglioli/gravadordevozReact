@@ -6,12 +6,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
+  header: {
+    flex: 1.5,
+    flexDirection: "column",
+    top: 10,
+  },
+
   geral: {
     color: "#BFCDE0",
     fontFamily: "Sofia Sans",
     fontSize: 20,
     fontWeight: "700",
-    top: 20,
     left: 30,
   },
 
@@ -19,7 +24,7 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 16,
     fontWeight: "500",
-    top: 35,
+    marginTop: 20,
     left: 30,
   },
 
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 12,
     fontWeight: "300",
-    top: 35,
+    marginTop: 5,
     left: 30,
   },
 
@@ -35,7 +40,7 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 16,
     fontWeight: "500",
-    top: 60,
+    marginTop: 20,
     left: 30,
   },
 
@@ -43,15 +48,7 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 12,
     fontWeight: "300",
-    top: 60,
-    left: 30,
-  },
-
-  grav: {
-    color: "#3B3355",
-    fontSize: 16,
-    fontWeight: "500",
-    top: 90,
+    marginTop: 5,
     left: 30,
   },
 
@@ -59,7 +56,15 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 12,
     fontWeight: "300",
-    top: 90,
+    marginTop: 10,
+    left: 30,
+  },
+
+  grav: {
+    color: "#3B3355",
+    fontSize: 16,
+    fontWeight: "500",
+    marginTop: 20,
     left: 30,
   },
 
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 16,
     fontWeight: "500",
-    top: 120,
+    marginTop: 30,
     left: 30,
   },
 
@@ -75,12 +80,13 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 12,
     fontWeight: "300",
-    top: 120,
+    marginTop: 10,
     left: 30,
   },
 
-  avanc: {
-    top: 160,
+  footer: {
+    flex: 2,
+    flexDirection: "column",
   },
 });
 

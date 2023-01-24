@@ -31,18 +31,21 @@ export default function Pagvenda() {
               <EvilIcons name="close-o" color={"white"} size={60} />
             </TouchableOpacity>
 
-            <LinearGradient
-              style={styles.icon2}
-              colors={["#BFCDE0", "#5D5D81"]}
-            >
-              <Ionicons name="mic" size={30} />
-            </LinearGradient>
+            <View style={styles.meio}>
+              <LinearGradient
+                style={styles.icon2}
+                colors={["#BFCDE0", "#5D5D81"]}
+              >
+                <Ionicons name="mic" size={30} />
+              </LinearGradient>
 
-            <Text style={styles.easy}>Easy</Text>
-            <Text style={styles.recorder}>Recorder</Text>
+              <Text style={styles.easy}>Easy</Text>
+              <Text style={styles.recorder}>Recorder</Text>
+            </View>
 
             <View
               style={{
+                flex: 0.1,
                 flexDirection: "row",
                 justifyContent: "space-around",
                 height: 75,
@@ -104,39 +107,41 @@ export default function Pagvenda() {
           <Text style={styles.text6}>39,99</Text>
           <Text style={styles.text5}>29,99</Text>
           <Text style={styles.vitalicio}>Vitalício</Text>
-        </View>
-
-        <View style={styles.linhav} />
-
-        <View style={styles.linha}>
-          <TouchableOpacity>
-            <Entypo name="circle" size={18} color={"#5D5D81"} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Entypo name="circle" size={18} color={"#5D5D81"} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Entypo name="circle" size={18} color={"#5D5D81"} />
-          </TouchableOpacity>
+          <View style={styles.linhav} />
         </View>
       </View>
-      <LinearGradient style={styles.touch} colors={["#BFCDE0", "#5D5D81"]}>
-        <TouchableOpacity>
-          <Text style={styles.text2} onPress={() => Navegar()}>
-            Continuar
-          </Text>
-        </TouchableOpacity>
-      </LinearGradient>
 
-      <Text style={styles.text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </Text>
+      <View style={styles.linha}>
+        <TouchableOpacity>
+          <Entypo name="circle" size={18} color={"#5D5D81"} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Entypo name="circle" size={18} color={"#5D5D81"} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Entypo name="circle" size={18} color={"#5D5D81"} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.footer}>
+        <LinearGradient style={styles.touch} colors={["#BFCDE0", "#5D5D81"]}>
+          <TouchableOpacity>
+            <Text style={styles.text2} onPress={() => Navegar()}>
+              Continuar
+            </Text>
+          </TouchableOpacity>
+        </LinearGradient>
+
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </View>
     </View>
   );
 }

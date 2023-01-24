@@ -8,8 +8,31 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import { Slider } from "@miblanchard/react-native-slider";
+import { useNavigation } from "@react-navigation/native";
+
+function usePlayerState() {
+  const [playerState, setPlayerSatate] = useState({
+    playing: false,
+  });
+
+  function toggleMusicPlay() {
+    setPlayerSatate({
+      ...playerState,
+      playing: !playerState.playing,
+    });
+  }
+
+  return {
+    playerState,
+    toggleMusicPlay,
+  };
+}
 
 export default function Audio() {
+  const navigation = useNavigation();
+  const navegar = (tela) => {
+    navigation.navigate(tela, {});
+  };
   const ARRAY = [
     {
       id: "1",
@@ -26,10 +49,12 @@ export default function Audio() {
     return <Item data={item} />;
   }
 
+  const { playerState, toggleMusicPlay } = usePlayerState();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navegar("EasyRecorder")}>
           <Text style={styles.gravar}>Gravar</Text>
         </TouchableOpacity>
 
@@ -63,7 +88,17 @@ export default function Audio() {
       <LinearGradient style={styles.footer} colors={["#BFCDE0", "#5D5D81"]}>
         <View style={styles.view}>
           <Text style={styles.text3}>00:00</Text>
-          <Slider thumbTintColor="#FFFFFF" />
+          <Slider
+            containerStyle={{ flex: 1, marginRight: "6%", marginLeft: "6%" }}
+            thumbTintColor="#FFFFFF"
+            value={2}
+            minimumValue={1}
+            maximumValue={5}
+            step={2}
+            trackClickable={true}
+            maximumTrackTintColor="#e9f0ef"
+            minimumTrackTintColor="#fff"
+          />
           <Text style={styles.text4}>00:45</Text>
         </View>
 
@@ -75,7 +110,18 @@ export default function Audio() {
           <TouchableOpacity>
             <AntDesign name="banckward" color={"white"} size={30} />
           </TouchableOpacity>
-          <AntDesign name="playcircleo" size={80} color={"white"} />
+
+          <TouchableOpacity onPress={toggleMusicPlay}>
+            {playerState.playing ? (
+              <AntDesign name="playcircleo" size={80} color={"white"} />
+            ) : (
+              <Ionicons
+                name="ios-stop-circle-outline"
+                size={80}
+                color={"white"}
+              />
+            )}
+          </TouchableOpacity>
 
           <TouchableOpacity>
             <AntDesign name="forward" color={"white"} size={30} />

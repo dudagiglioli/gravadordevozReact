@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 3,
     flexDirection: "row",
+    top: 30,
   },
 
   mp4: {
@@ -82,14 +83,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  slider: {},
-
   gravar: {
     color: "rgba(59, 51, 85, 0.45)",
+    fontSize: 20,
+    fontWeight: "300",
   },
 
   ouvir: {
     color: "#3B3355",
+    fontSize: 20,
+    fontWeight: "500",
   },
 
   text2: {
@@ -98,27 +101,30 @@ const styles = StyleSheet.create({
   },
 
   text3: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "white",
-    width: 35,
-    height: 20,
+    width: 50,
+    height: 25,
     color: "white",
-    fontSize: 13,
+    fontSize: 15,
+    marginTop: 10,
+    left: 10,
+    lineHeight: 24,
+    textAlign: "center",
   },
 
   text4: {
-    fontSize: 13,
+    fontSize: 18,
     color: "white",
+    marginTop: 10,
+    width: 55,
+    textAlign: "center",
   },
 
   view: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "flex-start",
-  },
-
-  title: {
-    fontSize: 30,
   },
 });
 
