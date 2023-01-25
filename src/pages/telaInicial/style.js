@@ -63,6 +63,81 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  modal: {
+    flex: 0.5,
+    marginTop: "50%",
+    borderColor: "black",
+    borderWidth: 1,
+    backgroundColor: "white",
+    width: 330,
+    left: 30,
+    borderRadius: 8,
+  },
+
+  view: {
+    flexDirection: "column",
+    marginTop: 15,
+    justifyContent: "center",
+  },
+
+  salvarGrav: {
+    color: "black",
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "700",
+  },
+
+  input: {
+    borderWidth: 1,
+    borderColor: "rgba(59, 51, 85, 1)",
+    borderRadius: 8,
+    width: 300,
+    fontSize: 20,
+    alignSelf: "center",
+    color: "black",
+    marginTop: 15,
+  },
+
+  linha: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 15,
+  },
+
+  textCancelar: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+
+  botaoCancelar: {
+    borderRadius: 6,
+    height: 38,
+    width: 78,
+    textAlign: "center",
+    marginLeft: "4%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  salvar: {
+    borderRadius: 6,
+    height: 38,
+    width: 160,
+    marginRight: "4%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+
+  textsalvar: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "700",
+    textAlign: "center",
+  },
 });
 
 export default styles;

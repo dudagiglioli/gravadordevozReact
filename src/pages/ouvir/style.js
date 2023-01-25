@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 
   footer: {
     backgroundColor: "#5D5D81",
-    flex: 0.8,
+    flex: 1,
     bottom: 0,
   },
 
@@ -125,6 +125,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "flex-start",
+  },
+
+  modal: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "red",
+    padding: 100,
   },
 });
 

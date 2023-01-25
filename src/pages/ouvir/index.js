@@ -11,7 +11,6 @@ import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Audio() {
-  const [gravarState, setGravarState] = useState(false);
   const [playerState, setPlayerSatate] = useState(false);
   const navigation = useNavigation();
   const navegar = (tela) => {
@@ -33,26 +32,12 @@ export default function Audio() {
     setPlayerSatate(!playerState);
   }
 
-  function gravar() {
-    setGravarState(!gravarState);
-  }
-
   function renderItem({ item }) {
     return <Item data={item} />;
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navegar("EasyRecorder")}>
-          <Text style={styles.gravar}>Gravar</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Text style={styles.ouvir}>Ouvir</Text>
-        </TouchableOpacity>
-      </View>
-
       <View style={styles.meio}>
         <FlatList
           data={ARRAY}
@@ -79,7 +64,11 @@ export default function Audio() {
         <View style={styles.view}>
           <Text style={styles.text3}>00:00</Text>
           <Slider
-            containerStyle={{ flex: 1, marginRight: "6%", marginLeft: "6%" }}
+            containerStyle={{
+              flex: 1,
+              marginRight: "6%",
+              marginLeft: "6%",
+            }}
             thumbTintColor="#FFFFFF"
             value={2}
             minimumValue={1}

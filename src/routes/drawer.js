@@ -1,6 +1,8 @@
 import React from "react";
 import { TouchableOpacity, Text, View } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import TelaInicial from "../pages/telaInicial";
 import Pagvenda from "../pages/pagVenda";
@@ -98,7 +100,11 @@ export default function DrawerNavigation() {
         component={""}
         options={{
           drawerIcon: ({ size }) => (
-            <AntDesign name="setting" size={size} color="black" />
+            <MaterialCommunityIcons
+              name="message-question"
+              size={size}
+              color="black"
+            />
           ),
         }}
       />
@@ -108,12 +114,12 @@ export default function DrawerNavigation() {
         component={""}
         options={{
           drawerIcon: ({ size }) => (
-            <AntDesign name="setting" size={size} color="black" />
+            <FontAwesome name="th-large" size={size} color="black" />
           ),
         }}
       />
 
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Ouvir"
         component={Audio}
         options={{
@@ -139,7 +145,7 @@ export default function DrawerNavigation() {
             </TouchableOpacity>
           ),
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 }
