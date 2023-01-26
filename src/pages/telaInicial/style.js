@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "Sofia Sans",
     fontWeight: "500",
-    fontSize: 12.5,
+    fontSize: 20,
     color: "rgba(59, 51, 85, 0.45)",
   },
 
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 10,
   },
 
   icon2: {
@@ -65,20 +66,21 @@ const styles = StyleSheet.create({
   },
 
   modal: {
-    flex: 0.5,
-    marginTop: "50%",
-    borderColor: "black",
-    borderWidth: 1,
-    backgroundColor: "white",
-    width: 330,
-    left: 30,
-    borderRadius: 8,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
   },
 
   view: {
     flexDirection: "column",
-    marginTop: 15,
+    marginHorizontal: 30,
     justifyContent: "center",
+    backgroundColor: "white",
+    borderRadius: 5,
+    padding: 20,
+    alignItems: "center",
   },
 
   salvarGrav: {
@@ -89,14 +91,17 @@ const styles = StyleSheet.create({
   },
 
   input: {
+    marginBottom: "4%",
+    marginTop: "4%",
     borderWidth: 1,
-    borderColor: "rgba(59, 51, 85, 1)",
-    borderRadius: 8,
-    width: 300,
-    fontSize: 20,
-    alignSelf: "center",
-    color: "black",
-    marginTop: 15,
+    borderColor: "#3B3355",
+    padding: 10,
+    borderRadius: 5,
+    width: 262,
+    height: 47,
+    color: "#3B3355",
+    fontSize: 16,
+    fontWeight: "400",
   },
 
   linha: {
@@ -115,11 +120,12 @@ const styles = StyleSheet.create({
   botaoCancelar: {
     borderRadius: 6,
     height: 38,
-    width: 78,
+    width: 92,
     textAlign: "center",
     marginLeft: "4%",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 20,
   },
 
   salvar: {
@@ -137,6 +143,93 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     textAlign: "center",
+  },
+
+  opcoes: {
+    borderWidth: 1,
+    borderColor: "#3B3355",
+    borderRadius: 5,
+    width: 262,
+    height: 47,
+    backgroundColor: "white",
+  },
+
+  textbutton: {
+    color: "#3B3355",
+    fontSize: 16,
+    fontWeight: "400",
+    textAlign: "left",
+  },
+
+  colorClick: {
+    backgroundColor: "#DDDD",
+  },
+
+  linhaClick: {
+    backgroundColor: "#FFFF",
+    borderBottomColor: "#FFFF",
+  },
+
+  textClick: {
+    color: "#000",
+    textAlign: "left",
+    marginLeft: "5%",
+    fontSize: 16,
+    fontWeight: "400",
+  },
+
+  avaliacao: {
+    fontSize: 15,
+    fontWeight: "400",
+    textAlign: "center",
+    color: "#000",
+    marginTop: "5%",
+  },
+  centeredView3: {
+    flex: 1,
+    width: 330,
+    height: 310,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  circle: {
+    flexDirection: "row-reverse",
+    left: 150,
+    bottom: 35,
+  },
+
+  btcircle: {
+    width: 35,
+    height: 35,
+    borderRadius: 20,
+  },
+  xicon: {
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    top: 3,
+  },
+
+  alinhar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  avaliar: {
+    width: 260,
+    height: 42,
+    borderRadius: 6,
+    marginRight: 10,
+  },
+
+  textStyle1: {
+    color: "white",
+    textAlign: "center",
+    fontWeight: "700",
+    fontSize: 20,
+    top: 5,
   },
 });
 
