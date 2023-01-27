@@ -1,16 +1,17 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
-INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
-MERGED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
+ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
+INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
+INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
+INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
+MERGED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
 MERGED from [com.facebook.flipper:flipper:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/95e931fbbfdb29d8fe263063f71e1fc3/transformed/jetified-flipper-0.125.0/AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/d28c9738e0be5fb2f452abe19a3ad1e0/transformed/jetified-flipper-network-plugin-0.125.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/3cdfe1d94f781b3cd4fe147ba3c7c694/transformed/jetified-flipper-fresco-plugin-0.125.0/AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-gesture-handler] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-in-app-review] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-in-app-review/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-linear-gradient] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-permissions] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
@@ -87,13 +88,13 @@ INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/andr
 		INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
 		INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:1-35:12
 		INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:1:11-69
@@ -181,6 +182,18 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:22:13-73
 	android:name
 		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:22:23-70
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:27:5-71
+	android:name
+		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:27:22-68
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:28:1-77
+	android:name
+		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:28:18-74
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:29:1-76
+	android:name
+		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:29:18-73
 uses-sdk
 INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml
@@ -197,6 +210,8 @@ MERGED from [:react-native-in-app-review] /Users/developer03dev12br/Documents/Gi
 MERGED from [:react-native-in-app-review] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-in-app-review/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-linear-gradient] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-linear-gradient] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-linear-gradient/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-permissions] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-permissions] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41

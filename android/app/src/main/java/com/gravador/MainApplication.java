@@ -1,5 +1,4 @@
 package com.gravador;
-import com.dooboolab.audiorecorderplayer.RNAudioRecorderPlayerPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
