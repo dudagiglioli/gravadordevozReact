@@ -15,8 +15,8 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
-import Icon from "react-native-vector-icons/FontAwesome";
 import InAppReview from "react-native-in-app-review";
+import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
 export default function TelaInicial() {
   const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
@@ -25,10 +25,8 @@ export default function TelaInicial() {
   const [visibleModal, setVisibleModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
-  const navigation = useNavigation();
-  const navegar = (tela) => {
-    navigation.navigate(tela, {});
-  };
+  const audioRecorderPlayer = new AudioRecorderPlayer();
+  const [audioPlay, setAudioPlay] = useState("recordSecs", "recordTime");
 
   function toggleMudarTela(teste) {
     setGravar(teste);
@@ -84,7 +82,7 @@ export default function TelaInicial() {
               transparent={true}
               visible={visibleModal}
               onRequestClose={() => {
-                setModalVisible(!visibleModal);
+                setVisibleModal(!visibleModal);
               }}
             >
               <TouchableWithoutFeedback
