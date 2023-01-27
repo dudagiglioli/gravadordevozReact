@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
 
   modal: {
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0.5)", //deixa o fundo cinza
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -80,6 +80,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 5,
     padding: 20,
+    alignItems: "center",
+  },
+
+  centeredView3: {
+    flex: 1,
+    width: 330,
+    height: 310,
+    alignSelf: "center",
+    justifyContent: "center",
     alignItems: "center",
   },
 
@@ -185,14 +194,6 @@ const styles = StyleSheet.create({
     color: "#000",
     marginTop: "5%",
   },
-  centeredView3: {
-    flex: 1,
-    width: 330,
-    height: 310,
-    alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
 
   circle: {
     flexDirection: "row-reverse",
@@ -230,6 +231,27 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 20,
     top: 5,
+  },
+
+  ratingBarStyle: {
+    justifyContent: "space-around",
+    flexDirection: "row",
+    marginTop: 30,
+  },
+
+  final: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 0.3,
+  },
+
+  botao: {
+    borderRadius: 100,
+    width: 87,
+    height: 87,
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

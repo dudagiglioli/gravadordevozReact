@@ -1,5 +1,5 @@
 package com.gravador;
-
+import com.dooboolab.audiorecorderplayer.RNAudioRecorderPlayerPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -12,6 +12,7 @@ import com.facebook.soloader.SoLoader;
 import com.gravador.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
 
 public class MainApplication extends Application implements ReactApplication {
 

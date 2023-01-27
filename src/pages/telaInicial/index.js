@@ -15,13 +15,15 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
+import Icon from "react-native-vector-icons/FontAwesome";
 import InAppReview from "react-native-in-app-review";
 
 export default function TelaInicial() {
-  const [defaultRating, setDefaultRating] = useState(2);
-  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
+  const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
+  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]); // definindo a qtde de estrelas que irá aparecer na tela
   const options = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
   const [visibleModal, setVisibleModal] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
   const navigation = useNavigation();
   const navegar = (tela) => {
@@ -77,7 +79,7 @@ export default function TelaInicial() {
           </View>
 
           <View style={styles.footer}>
-            {/* <Modal
+            <Modal
               animationType="slide"
               transparent={true}
               visible={visibleModal}
@@ -149,22 +151,33 @@ export default function TelaInicial() {
                   </View>
                 </View>
               </TouchableWithoutFeedback>
-            </Modal> */}
+            </Modal>
 
-<Modal
+            <LinearGradient
+              style={styles.icon2}
+              colors={["#BFCDE0", "#5D5D81"]}
+            >
+              <TouchableOpacity onPress={() => setVisibleModal(true)}>
+                <Ionicons name="mic" size={60} />
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
+
+          <View style={styles.final}>
+            <Modal
               animationType="slide"
               transparent={true}
-              visible={visibleModal}
+              visible={visible}
               onRequestClose={() => {
                 Alert.alert("Modal has been closed.");
-                setVisibleModal(!visibleModal);
+                setVisible(!visible);
               }}
             >
-              <View style={styles.centeredView3}>
+              <View style={styles.modal}>
                 <View style={styles.view}>
                   <TouchableOpacity
                     style={styles.circle}
-                    onPress={() => setVisibleModal(!visibleModal)}
+                    onPress={() => setVisible(!visible)}
                   >
                     <LinearGradient
                       style={styles.btcircle}
@@ -192,7 +205,12 @@ export default function TelaInicial() {
                     </Text>
                     <View style={styles.alinhar}>
                       <TouchableOpacity
-                        onPress={() => setVisibleModal(!visibleModal)}
+                        onPress={() => {
+                          if (defaultRating >= 4) {
+                            InAppReview.RequestInAppReview();
+                            console.log(defaultRating);
+                          }
+                        }}
                       >
                         <LinearGradient
                           style={styles.avaliar}
@@ -205,43 +223,19 @@ export default function TelaInicial() {
                   </View>
                 </View>
               </View>
-         
-
-                    {/* <View style={styles.linha}>
-                      <LinearGradient
-                        style={styles.salvar}
-                        colors={["#BFCDE0", "#5D5D81"]}
-                      >
-                        <Text style={styles.textsalvar}>Salvar</Text>
-                      </LinearGradient>
-
-                      <TouchableOpacity
-                        onPress={() => setVisibleModal(!visibleModal)}
-                      >
-                        <LinearGradient
-                          style={styles.botaoCancelar}
-                          colors={["#5D5D81", "#3B3355"]}
-                        >
-                          <Text style={styles.textCancelar}>Cancelar</Text>
-                        </LinearGradient>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                </View>
-              </TouchableWithoutFeedback> */}
             </Modal>
 
-            <LinearGradient
-              style={styles.icon2}
-              colors={["#BFCDE0", "#5D5D81"]}
+            <TouchableOpacity
+              onPress={() => setVisible(true)}
             >
-              <TouchableOpacity onPress={() => setVisibleModal(true)}>
-                <Ionicons name="mic" size={60} />
-              </TouchableOpacity>
-            </LinearGradient>
+              <LinearGradient
+                style={styles.text}
+                colors={["#BFCDE0", "#5D5D81"]}
+              >
+                <Text>Avaliar</Text>
+              </LinearGradient>
+            </TouchableOpacity>
           </View>
-
-        
         </>
       )}
     </View>
