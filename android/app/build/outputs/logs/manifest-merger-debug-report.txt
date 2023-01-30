@@ -8,6 +8,7 @@ MERGED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/androi
 MERGED from [com.facebook.flipper:flipper:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/bae35ff68c27edf412f3700024be0ffe/transformed/jetified-flipper-0.125.0/AndroidManifest.xml:8:1-18:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/38713ea8ea0164fee0c4e5131f803c8c/transformed/jetified-flipper-network-plugin-0.125.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/58cf1986ccac5a217ea94d89b1b215af/transformed/jetified-flipper-fresco-plugin-0.125.0/AndroidManifest.xml:8:1-15:12
+MERGED from [:react-native-fs] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-fs/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-audio-recorder-player] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-audio-recorder-player/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-gesture-handler] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-in-app-review] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-in-app-review/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
@@ -15,6 +16,7 @@ MERGED from [:react-native-linear-gradient] /Users/developer03dev12br/Documents/
 MERGED from [:react-native-permissions] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-permissions/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-21:12
 MERGED from [:react-native-vector-icons] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.69.7] /Users/developer03dev12br/.gradle/caches/transforms-3/1fcd9a43139705c39fd1f09661707281/transformed/jetified-react-native-0.69.7-debug/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/developer03dev12br/.gradle/caches/transforms-3/fb3746a3b62aa9cf5f767575f9135ac5/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -114,6 +116,8 @@ MERGED from [:react-native-audio-recorder-player] /Users/developer03dev12br/Docu
 		ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:5:18-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:6:1-77
+MERGED from [:react-native-fs] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-fs/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+MERGED from [:react-native-fs] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-fs/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
 MERGED from [:react-native-audio-recorder-player] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-audio-recorder-player/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-81
 MERGED from [:react-native-audio-recorder-player] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-audio-recorder-player/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-81
 	android:name
@@ -126,6 +130,8 @@ application
 ADDED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:8:5-27:19
 MERGED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:8:5-27:19
 MERGED from /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:8:5-27:19
+MERGED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-19:19
+MERGED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-19:19
 MERGED from [com.facebook.react:react-native:0.69.7] /Users/developer03dev12br/.gradle/caches/transforms-3/1fcd9a43139705c39fd1f09661707281/transformed/jetified-react-native-0.69.7-debug/AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.react:react-native:0.69.7] /Users/developer03dev12br/.gradle/caches/transforms-3/1fcd9a43139705c39fd1f09661707281/transformed/jetified-react-native-0.69.7-debug/AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.soloader:soloader:0.10.3] /Users/developer03dev12br/.gradle/caches/transforms-3/0d0583b605ea7fcfaea14b1bad4e03b5/transformed/jetified-soloader-0.10.3/AndroidManifest.xml:11:5-20
@@ -210,6 +216,8 @@ MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] /Users/develop
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/38713ea8ea0164fee0c4e5131f803c8c/transformed/jetified-flipper-network-plugin-0.125.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/58cf1986ccac5a217ea94d89b1b215af/transformed/jetified-flipper-fresco-plugin-0.125.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/58cf1986ccac5a217ea94d89b1b215af/transformed/jetified-flipper-fresco-plugin-0.125.0/AndroidManifest.xml:11:5-13:41
+MERGED from [:react-native-fs] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-fs/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-fs] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-fs/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-audio-recorder-player] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-audio-recorder-player/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-audio-recorder-player] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-audio-recorder-player/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-gesture-handler] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -224,6 +232,8 @@ MERGED from [:react-native-safe-area-context] /Users/developer03dev12br/Document
 MERGED from [:react-native-safe-area-context] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.69.7] /Users/developer03dev12br/.gradle/caches/transforms-3/1fcd9a43139705c39fd1f09661707281/transformed/jetified-react-native-0.69.7-debug/AndroidManifest.xml:5:5-7:41
@@ -376,6 +386,22 @@ uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/bae35ff68c27edf412f3700024be0ffe/transformed/jetified-flipper-0.125.0/AndroidManifest.xml:16:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.125.0] /Users/developer03dev12br/.gradle/caches/transforms-3/bae35ff68c27edf412f3700024be0ffe/transformed/jetified-flipper-0.125.0/AndroidManifest.xml:16:22-73
+provider#cl.json.RNShareFileProvider
+ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
+	android:grantUriPermissions
+		ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
+	android:authorities
+		ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-72
+	android:exported
+		ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+	android:name
+		ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-55
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:64
+	android:resource
+		ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-61
+	android:name
+		ADDED from [:react-native-share] /Users/developer03dev12br/Documents/GitHub/gravadordevozReact/node_modules/react-native-share/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:17.5.0] /Users/developer03dev12br/.gradle/caches/transforms-3/1dbe1b9f2422480ae401634522fdddf2/transformed/jetified-play-services-base-17.5.0/AndroidManifest.xml:23:9-26:75
 	android:exported

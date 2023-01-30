@@ -17,10 +17,12 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
+import Entypo from "react-native-vector-icons/Entypo";
 import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
-
 const audioRecorderPlayer = new AudioRecorderPlayer();
+import RNFS from "react-native-fs";
+import Share from "react-native-share";
 
 export default function TelaInicial() {
   const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
@@ -29,9 +31,15 @@ export default function TelaInicial() {
   const [visibleModal, setVisibleModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
-  const [tempograv, setTempoGrav] = useState({ recordSecs: 0, recordTime: 0 });
+  const [tempograv, setTempoGrav] = useState({
+    recordSecs: 0,
+    recordTime: "00:00:00",
+  });
   const [gravando, setGravando] = useState(false);
-  const [frase, setFrase] = useState({inicio: "Pronto para começar", grav: "Gravando"})
+  const [frase, setFrase] = useState({
+    inicio: "Pronto para começar",
+    grav: "Gravando",
+  });
 
   //iniciar gravação
   async function startRecording() {
@@ -85,7 +93,24 @@ export default function TelaInicial() {
       recordSecs: 0,
       recordTime: tempograv.recordTime,
     });
-    console.log(result);
+    const shareOptions = {
+      title: "Share file",
+      failOnCancel: false,
+      saveToFiles: true,
+      url: result,
+    };
+
+    await Share.open(shareOptions);
+
+    await RNFS.copyFile(result, RNFS.DocumentDirectoryPath + "/test.mp4")
+      .then((success) => {
+        console.log("file moved!", success);
+      })
+      .catch((err) => {
+        console.log("Error: " + err.message);
+      });
+
+    console.log("teste", result);
   }
 
   function toggleMudarTela(teste) {
@@ -133,7 +158,9 @@ export default function TelaInicial() {
           <View style={styles.meio}>
             <Text style={styles.timer}>{tempograv.recordTime}</Text>
 
-            <Text style={styles.text}>{gravando > 0 ? frase.grav : frase.inicio}</Text>
+            <Text style={styles.text}>
+              {gravando > 0 ? frase.grav : frase.inicio}
+            </Text>
           </View>
 
           <View style={styles.footer}>
@@ -218,11 +245,11 @@ export default function TelaInicial() {
               <TouchableOpacity
                 onPress={gravando > 0 ? onStopRecording : startRecording}
               >
-                <Ionicons
-                  name="mic"
-                  size={60}
-                  color={gravando ? "red" : "white"}
-                />
+                {gravando ? (
+                  <Entypo name="controller-record" size={50} color={"#fff"} />
+                ) : (
+                  <Ionicons name="mic" size={60} color="#fff" />
+                )}
               </TouchableOpacity>
             </LinearGradient>
           </View>

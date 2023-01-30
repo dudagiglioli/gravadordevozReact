@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 // react-native-audio-recorder-player
 import com.dooboolab.audiorecorderplayer.RNAudioRecorderPlayerPackage;
+// react-native-fs
+import com.rnfs.RNFSPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-in-app-review
@@ -27,6 +29,8 @@ import com.swmansion.reanimated.ReanimatedPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-share
+import cl.json.RNSharePackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -75,6 +79,7 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new RNAudioRecorderPlayerPackage(),
+      new RNFSPackage(),
       new RNGestureHandlerPackage(),
       new AppReviewPackage(),
       new LinearGradientPackage(),
@@ -82,6 +87,7 @@ public class PackageList {
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
+      new RNSharePackage(),
       new VectorIconsPackage()
     ));
   }
