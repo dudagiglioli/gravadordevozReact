@@ -6,6 +6,8 @@ import {
   Modal,
   TextInput,
   TouchableWithoutFeedback,
+  PermissionsAndroid,
+  Platform,
 } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -26,7 +28,58 @@ export default function TelaInicial() {
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
   const audioRecorderPlayer = new AudioRecorderPlayer();
-  const [audioPlay, setAudioPlay] = useState("recordSecs", "recordTime");
+  const [tempograv, setTempoGrav] = useState({recordSecs: 0, recordTime: 0});
+
+  async function startRecording() {
+    if (Platform.OS === "android") {
+      try {
+        const grants = await PermissionsAndroid.requestMultiple([
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+        ]);
+
+        console.log("write external stroage", grants);
+
+        if (
+          grants["android.permission.WRITE_EXTERNAL_STORAGE"] ===
+            PermissionsAndroid.RESULTS.GRANTED &&
+          grants["android.permission.READ_EXTERNAL_STORAGE"] ===
+            PermissionsAndroid.RESULTS.GRANTED &&
+          grants["android.permission.RECORD_AUDIO"] ===
+            PermissionsAndroid.RESULTS.GRANTED
+        ) {
+          console.log("Permissions granted");
+        } else {
+          console.log("All required permissions not granted");
+          return;
+        }
+      } catch (err) {
+        console.warn(err);
+        return;
+      }
+    }
+    const result = await audioRecorderPlayer.startRecorder();
+    audioRecorderPlayer.addRecordBackListener((e) => {
+      setTempoGrav({
+        recordSecs: e.currentPosition,
+        recordTime: audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)),
+      });
+      return;
+    });
+    console.log(result);
+  }
+
+  async function onStopRecording() {
+    const result = await audioRecorderPlayer.stopRecorder();
+
+    audioRecorderPlayer.removeRecordBackListener();
+    setTempoGrav({
+      recordSecs: 0,
+      recordTime: tempograv.recordTime,
+    });
+    console.log(result);
+  }
 
   function toggleMudarTela(teste) {
     setGravar(teste);
@@ -71,7 +124,7 @@ export default function TelaInicial() {
       ) : (
         <>
           <View style={styles.meio}>
-            <Text style={styles.timer}>00:00</Text>
+            <Text style={styles.timer}>{tempograv.recordSecs}</Text>
 
             <Text style={styles.text}>Pronto para começar</Text>
           </View>
@@ -155,7 +208,8 @@ export default function TelaInicial() {
               style={styles.icon2}
               colors={["#BFCDE0", "#5D5D81"]}
             >
-              <TouchableOpacity onPress={() => setVisibleModal(true)}>
+              <TouchableOpacity onPress={startRecording }>
+
                 <Ionicons name="mic" size={60} />
               </TouchableOpacity>
             </LinearGradient>
@@ -223,9 +277,7 @@ export default function TelaInicial() {
               </View>
             </Modal>
 
-            <TouchableOpacity
-              onPress={() => setVisible(true)}
-            >
+            <TouchableOpacity onPress={() => setVisible(true)}>
               <LinearGradient
                 style={styles.text}
                 colors={["#BFCDE0", "#5D5D81"]}
