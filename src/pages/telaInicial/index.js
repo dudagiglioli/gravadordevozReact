@@ -20,6 +20,8 @@ import Feather from "react-native-vector-icons/Feather";
 import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
+const audioRecorderPlayer = new AudioRecorderPlayer();
+
 export default function TelaInicial() {
   const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]); // definindo a qtde de estrelas que irá aparecer na tela
@@ -27,10 +29,12 @@ export default function TelaInicial() {
   const [visibleModal, setVisibleModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
-  const audioRecorderPlayer = new AudioRecorderPlayer();
-  const [tempograv, setTempoGrav] = useState({recordSecs: 0, recordTime: 0});
+  const [tempograv, setTempoGrav] = useState({ recordSecs: 0, recordTime: 0 });
+  const [gravando, setGravando] = useState(false);
 
+  //iniciar gravação
   async function startRecording() {
+    setGravando(true);
     if (Platform.OS === "android") {
       try {
         const grants = await PermissionsAndroid.requestMultiple([
@@ -70,7 +74,9 @@ export default function TelaInicial() {
     console.log(result);
   }
 
+  //parar gravação
   async function onStopRecording() {
+    setGravando(false);
     const result = await audioRecorderPlayer.stopRecorder();
 
     audioRecorderPlayer.removeRecordBackListener();
@@ -124,7 +130,7 @@ export default function TelaInicial() {
       ) : (
         <>
           <View style={styles.meio}>
-            <Text style={styles.timer}>{tempograv.recordSecs}</Text>
+            <Text style={styles.timer}>{tempograv.recordTime}</Text>
 
             <Text style={styles.text}>Pronto para começar</Text>
           </View>
@@ -208,9 +214,14 @@ export default function TelaInicial() {
               style={styles.icon2}
               colors={["#BFCDE0", "#5D5D81"]}
             >
-              <TouchableOpacity onPress={startRecording }>
-
-                <Ionicons name="mic" size={60} />
+              <TouchableOpacity
+                onPress={gravando > 0 ? onStopRecording : startRecording}
+              >
+                <Ionicons
+                  name="mic"
+                  size={60}
+                  color={gravando ? "red" : "white"}
+                />
               </TouchableOpacity>
             </LinearGradient>
           </View>
