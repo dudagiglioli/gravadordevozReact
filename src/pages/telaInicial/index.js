@@ -31,6 +31,7 @@ export default function TelaInicial() {
   const [gravar, setGravar] = useState(true);
   const [tempograv, setTempoGrav] = useState({ recordSecs: 0, recordTime: 0 });
   const [gravando, setGravando] = useState(false);
+  const [frase, setFrase] = useState({inicio: "Pronto para começar", grav: "Gravando"})
 
   //iniciar gravação
   async function startRecording() {
@@ -132,7 +133,7 @@ export default function TelaInicial() {
           <View style={styles.meio}>
             <Text style={styles.timer}>{tempograv.recordTime}</Text>
 
-            <Text style={styles.text}>Pronto para começar</Text>
+            <Text style={styles.text}>{gravando > 0 ? frase.grav : frase.inicio}</Text>
           </View>
 
           <View style={styles.footer}>
