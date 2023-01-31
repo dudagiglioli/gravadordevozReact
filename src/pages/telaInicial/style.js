@@ -18,12 +18,14 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 20,
     fontWeight: "500",
+    fontFamily: "SofiaSans-Light",
   },
 
   ouvir: {
     color: "rgba(59, 51, 85, 0.45)",
     fontSize: 20,
     fontWeight: "300",
+    fontFamily: "SofiaSans-Light",
   },
 
   meio: {
@@ -35,14 +37,14 @@ const styles = StyleSheet.create({
   },
 
   timer: {
-    fontFamily: "Sofia Sans",
+    fontFamily: "SofiaSans-Light",
     fontWeight: "500",
     fontSize: 50,
     color: "#3B3355",
   },
 
   text: {
-    fontFamily: "Sofia Sans",
+    fontFamily: "SofiaSans-Light",
     fontWeight: "500",
     fontSize: 20,
     color: "rgba(59, 51, 85, 0.45)",
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   salvarGrav: {
@@ -97,6 +100,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     fontWeight: "700",
+    fontFamily: "SofiaSans-Light",
   },
 
   input: {
@@ -111,6 +115,7 @@ const styles = StyleSheet.create({
     color: "#3B3355",
     fontSize: 16,
     fontWeight: "400",
+    fontFamily: "SofiaSans-Light",
   },
 
   linha: {
@@ -124,6 +129,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     textAlign: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   botaoCancelar: {
@@ -135,6 +141,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+    fontFamily: "SofiaSans-Light",
   },
 
   salvar: {
@@ -145,6 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
+    fontFamily: "SofiaSans-Light",
   },
 
   textsalvar: {
@@ -152,6 +160,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     textAlign: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   opcoes: {
@@ -168,6 +177,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "400",
     textAlign: "left",
+    fontFamily: "SofiaSans-Light",
   },
 
   colorClick: {
@@ -185,6 +195,7 @@ const styles = StyleSheet.create({
     marginLeft: "5%",
     fontSize: 16,
     fontWeight: "400",
+    fontFamily: "SofiaSans-Light",
   },
 
   avaliacao: {
@@ -193,6 +204,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#000",
     marginTop: "5%",
+    fontFamily: "SofiaSans-Light",
   },
 
   circle: {
@@ -223,6 +235,7 @@ const styles = StyleSheet.create({
     height: 42,
     borderRadius: 6,
     marginRight: 10,
+    fontFamily: "SofiaSans-Light",
   },
 
   textStyle1: {
@@ -231,6 +244,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 20,
     top: 5,
+    fontFamily: "SofiaSans-Light",
   },
 
   ratingBarStyle: {

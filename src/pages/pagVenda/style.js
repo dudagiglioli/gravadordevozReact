@@ -36,12 +36,14 @@ const styles = StyleSheet.create({
     color: "#BFCDE0",
     fontSize: 43,
     fontWeight: "400",
+    fontFamily: "SofiaSans-Light",
   },
 
   recorder: {
     color: "#3B3355",
     fontSize: 43,
     fontWeight: "500",
+    fontFamily: "SofiaSans-Light",
   },
 
   rectangle: {
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     left: -1,
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   text4: {
@@ -67,6 +70,7 @@ const styles = StyleSheet.create({
     top: 15,
     left: 3,
     textAlign: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   text5: {
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
     top: 7,
     left: -0.5,
     alignItems: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   vitalicio: {
@@ -85,6 +90,7 @@ const styles = StyleSheet.create({
     top: 10,
     left: -0.5,
     textAlign: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   text: {
@@ -95,11 +101,13 @@ const styles = StyleSheet.create({
     width: 380,
     textAlign: "justify",
     lineHeight: 15,
+    fontFamily: "SofiaSans-Light",
   },
 
   text2: {
     color: "white",
     fontSize: 20,
+    fontFamily: "SofiaSans-Light",
   },
 
   text6: {
@@ -109,6 +117,7 @@ const styles = StyleSheet.create({
     top: 4,
     left: -0.5,
     alignItems: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   linha2: {
@@ -168,6 +177,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     top: 50,
+    fontFamily: "SofiaSans-Light",
   },
 
   inicio: {

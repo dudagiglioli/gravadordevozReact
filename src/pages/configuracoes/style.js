@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 
   geral: {
     color: "#BFCDE0",
-    fontFamily: "Sofia Sans",
+    fontFamily: "SofiaSans-Light",
     fontSize: 20,
     fontWeight: "700",
     left: 30,
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 20,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   port: {
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     marginTop: 5,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   audio: {
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 20,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   padrao: {
@@ -50,6 +53,7 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     marginTop: 5,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   padrao2: {
@@ -58,6 +62,7 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     marginTop: 10,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   grav: {
@@ -66,6 +71,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 20,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   amost: {
@@ -74,6 +80,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 30,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   khz: {
@@ -82,6 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     marginTop: 10,
     left: 30,
+    fontFamily: "SofiaSans-Light"
   },
 
   footer: {

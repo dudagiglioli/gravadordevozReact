@@ -33,7 +33,7 @@ export default function TelaInicial() {
   const [gravar, setGravar] = useState(true);
   const [tempograv, setTempoGrav] = useState({
     recordSecs: 0,
-    recordTime: "00:00:00",
+    recordTime: "00:00",
   });
   const [gravando, setGravando] = useState(false);
   const [frase, setFrase] = useState({
@@ -93,14 +93,6 @@ export default function TelaInicial() {
       recordSecs: 0,
       recordTime: tempograv.recordTime,
     });
-    const shareOptions = {
-      title: "Share file",
-      failOnCancel: false,
-      saveToFiles: true,
-      url: result,
-    };
-
-    await Share.open(shareOptions);
 
     await RNFS.copyFile(result, RNFS.DocumentDirectoryPath + "/test.mp4")
       .then((success) => {
@@ -111,6 +103,9 @@ export default function TelaInicial() {
       });
 
     console.log("teste", result);
+
+    //"chama" o modal de salvar o audio
+    setVisibleModal(true);
   }
 
   function toggleMudarTela(teste) {

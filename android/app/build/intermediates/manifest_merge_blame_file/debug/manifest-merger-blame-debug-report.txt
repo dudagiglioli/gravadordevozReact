@@ -40,12 +40,12 @@
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 23-->[androidx.core:core:1.7.0] /Users/developer03dev12br/.gradle/caches/transforms-3/b2197c574567c595cb9e45a5d8e1862d/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 24        android:debuggable="true"
-25        android:icon="@mipmap/ic_launcher"
-25-->/Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:11:7-41
+25        android:icon="@mipmap/ic_launcher_square"
+25-->/Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:11:7-48
 26        android:label="@string/app_name"
 26-->/Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:10:7-39
-27        android:roundIcon="@mipmap/ic_launcher_round"
-27-->/Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:12:7-52
+27        android:roundIcon="@mipmap/ic_launcher"
+27-->/Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:12:7-46
 28        android:theme="@style/AppTheme"
 28-->/Users/developer03dev12br/Documents/GitHub/gravadordevozReact/android/app/src/main/AndroidManifest.xml:14:7-38
 29        android:usesCleartextTraffic="true" >

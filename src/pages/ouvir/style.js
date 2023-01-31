@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "justify",
     left: 25,
+    fontFamily: "SofiaSans-Light",
   },
 
   p1: {
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
   l1: {
     fontSize: 10,
     color: "rgba(0, 0, 0, 0.5)",
+    fontFamily: "SofiaSans-Light",
   },
 
   p2: {
@@ -49,11 +51,13 @@ const styles = StyleSheet.create({
     color: "rgba(191, 205, 224, 1)",
     backgroundColor: "#3B3355",
     borderRadius: 3,
+    fontFamily: "SofiaSans-Light",
   },
 
   timer: {
     fontSize: 10,
     color: "rgba(0, 0, 0, 0.5)",
+    fontFamily: "SofiaSans-Light",
   },
 
   tesoura: {
@@ -74,6 +78,7 @@ const styles = StyleSheet.create({
 
   text1: {
     color: "black",
+    fontFamily: "SofiaSans-Light",
   },
 
   linha: {
@@ -87,17 +92,20 @@ const styles = StyleSheet.create({
     color: "rgba(59, 51, 85, 0.45)",
     fontSize: 20,
     fontWeight: "300",
+    fontFamily: "SofiaSans-Light",
   },
 
   ouvir: {
     color: "#3B3355",
     fontSize: 20,
     fontWeight: "500",
+    fontFamily: "SofiaSans-Light",
   },
 
   text2: {
     fontSize: 25,
     color: "white",
+    fontFamily: "SofiaSans-Light",
   },
 
   text3: {
@@ -111,6 +119,7 @@ const styles = StyleSheet.create({
     left: 10,
     lineHeight: 24,
     textAlign: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   text4: {
@@ -119,6 +128,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 55,
     textAlign: "center",
+    fontFamily: "SofiaSans-Light",
   },
 
   view: {
