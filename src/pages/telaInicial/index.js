@@ -9,7 +9,7 @@ import {
   PermissionsAndroid,
   Platform,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 import Audio from "../ouvir";
@@ -22,7 +22,17 @@ import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 const audioRecorderPlayer = new AudioRecorderPlayer();
 import RNFS from "react-native-fs";
-import Share from "react-native-share";
+import  SQLite from "react-native-sqlite-storage";
+
+
+// const db = SQLite.openDatabase(
+//   {
+//     name: "MainDB",
+//     location: "default"
+//   },
+//   ()=> {}, 
+//   error => {console.error(error)}
+// )
 
 export default function TelaInicial() {
   const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
@@ -40,6 +50,37 @@ export default function TelaInicial() {
     inicio: "Pronto para começar",
     grav: "Gravando",
   });
+
+  // useEffect(() => {
+  //   const createTable = () => {
+  //     db.transaction(tx => {
+  //       tx.executeSql(`CREATE TABLE IF NOT EXISTS audios
+  //       (id INTEGER AUTOINCREMENT PRIMARY KEY NOT NULL, title TEXT, 
+  //         "INSERT INTO audios (title, datahora TEXT, tamanho TEXT, tags TEXT, duracao TEXT, caminho TEXT)
+  //       `);
+  //     });
+  //   };
+  
+  //   createTable();
+  // }, []);
+
+  // async function SalvarBanco () {
+  //   await db.transaction(async (tx) => {
+  //     await tx.executeSql(
+  //       "INSERT INTO audios (title, datahora, tamanho, tags, duracao, caminho) VALUES () ",
+  //     )
+  //   })
+  // }
+
+
+  // async function SalvarBancoS () {
+  //   await db.transaction(async (tx) => {
+  //     await tx.executeSql(
+  //       "SELECT audios (title, datahora, tamanho, tags, duracao, caminho)",
+  //       [], 
+  //   })
+  // } 
+
 
   //iniciar gravação
   async function startRecording() {
@@ -210,12 +251,15 @@ export default function TelaInicial() {
                     />
 
                     <View style={styles.linha}>
+                      <TouchableOpacity>
                       <LinearGradient
                         style={styles.salvar}
                         colors={["#BFCDE0", "#5D5D81"]}
                       >
                         <Text style={styles.textsalvar}>Salvar</Text>
+
                       </LinearGradient>
+                      </TouchableOpacity>
 
                       <TouchableOpacity
                         onPress={() => setVisibleModal(!visibleModal)}
