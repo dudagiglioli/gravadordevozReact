@@ -22,22 +22,12 @@ import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 const audioRecorderPlayer = new AudioRecorderPlayer();
 import RNFS from "react-native-fs";
-import  SQLite from "react-native-sqlite-storage";
-
-
-// const db = SQLite.openDatabase(
-//   {
-//     name: "MainDB",
-//     location: "default"
-//   },
-//   ()=> {}, 
-//   error => {console.error(error)}
-// )
+import sqlite from "../../classes/sqlite";
 
 export default function TelaInicial() {
   const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]); // definindo a qtde de estrelas que irá aparecer na tela
-  const options = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
+  const arrayOpcoes = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
   const [visibleModal, setVisibleModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
@@ -50,37 +40,15 @@ export default function TelaInicial() {
     inicio: "Pronto para começar",
     grav: "Gravando",
   });
+  const [opcao, setOpcao] = useState();
+  const [nome, setNome] = useState("");
 
-  // useEffect(() => {
-  //   const createTable = () => {
-  //     db.transaction(tx => {
-  //       tx.executeSql(`CREATE TABLE IF NOT EXISTS audios
-  //       (id INTEGER AUTOINCREMENT PRIMARY KEY NOT NULL, title TEXT, 
-  //         "INSERT INTO audios (title, datahora TEXT, tamanho TEXT, tags TEXT, duracao TEXT, caminho TEXT)
-  //       `);
-  //     });
-  //   };
-  
-  //   createTable();
-  // }, []);
-
-  // async function SalvarBanco () {
-  //   await db.transaction(async (tx) => {
-  //     await tx.executeSql(
-  //       "INSERT INTO audios (title, datahora, tamanho, tags, duracao, caminho) VALUES () ",
-  //     )
-  //   })
-  // }
-
-
-  // async function SalvarBancoS () {
-  //   await db.transaction(async (tx) => {
-  //     await tx.executeSql(
-  //       "SELECT audios (title, datahora, tamanho, tags, duracao, caminho)",
-  //       [], 
-  //   })
-  // } 
-
+  async function SalvarBanco() {
+    await sqlite.query(
+      `INSERT INTO audios (titulo,data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", " ", " ","${opcao}", "${tempograv.recordTime}", "" )`
+    );
+    console.log(await sqlite.query("SELECT * FROM audios"));
+  }
 
   //iniciar gravação
   async function startRecording() {
@@ -216,14 +184,19 @@ export default function TelaInicial() {
                     <Text style={styles.salvarGrav}>Salvar Gravação</Text>
 
                     <TextInput
+                      onChangeText={(tex) => {
+                        setNome(tex);
+                        console.log(tex);
+                      }}
                       style={styles.input}
                       maxLength={50}
                       placeholder="Nome"
                     />
 
                     <SelectDropdown
-                      data={options}
+                      data={arrayOpcoes}
                       onSelect={(selectedItem, index) => {
+                        setOpcao(selectedItem);
                         console.log(selectedItem, index);
                       }}
                       defaultButtonText={"Tag"}
@@ -251,14 +224,13 @@ export default function TelaInicial() {
                     />
 
                     <View style={styles.linha}>
-                      <TouchableOpacity>
-                      <LinearGradient
-                        style={styles.salvar}
-                        colors={["#BFCDE0", "#5D5D81"]}
-                      >
-                        <Text style={styles.textsalvar}>Salvar</Text>
-
-                      </LinearGradient>
+                      <TouchableOpacity onPress={() => SalvarBanco}>
+                        <LinearGradient
+                          style={styles.salvar}
+                          colors={["#BFCDE0", "#5D5D81"]}
+                        >
+                          <Text style={styles.textsalvar}>Salvar</Text>
+                        </LinearGradient>
                       </TouchableOpacity>
 
                       <TouchableOpacity
