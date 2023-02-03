@@ -14,7 +14,6 @@ export default function Pagvenda() {
   };
   //goBack - voltar p a pagInicial, ou seja a principal ("uma atrás")
 
-  
   return (
     <View style={styles.container}>
       <View style={styles.inicio}>
@@ -112,7 +111,7 @@ export default function Pagvenda() {
         </View>
       </View>
 
-      <View style={styles.linha}>
+      <View style={styles.linha} >
         <TouchableOpacity>
           <Entypo name="circle" size={18} color={"#5D5D81"} />
         </TouchableOpacity>
@@ -120,7 +119,12 @@ export default function Pagvenda() {
           <Entypo name="circle" size={18} color={"#5D5D81"} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Entypo name="circle" size={18} color={"#5D5D81"} />
+          <Entypo
+            name="circle"
+            size={18}
+            color={"#5D5D81"}
+            style={styles.circle}
+          />
         </TouchableOpacity>
       </View>
 

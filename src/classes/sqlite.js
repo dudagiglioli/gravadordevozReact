@@ -7,12 +7,12 @@ import audios from "../data/audios";
 SQLite.DEBUG(false);
 SQLite.enablePromise(true);
 
-const database_name = "eba.db"; // mudar nome de acordo com o projeto
+const database_name = "gravador.db"; // mudar nome de acordo com o projeto
 const database_version = "1.0";
-const database_displayname = "Eba"; // mudar nome de acordo com o projeto
+const database_displayname = "gravador"; // mudar nome de acordo com o projeto
 const database_size = 200000;
 
-var db;
+let db;
 
 class Database {
   //Metodo construtor, é chamado sempre que a classe é instanciada,
@@ -86,16 +86,6 @@ class Database {
   //Cria o banco de dados, caso ele já não exista
   createDatabase() {
     db.transaction((tx) => {
-      //Exmplo de criação de tabela no banco de dados
-      //Sempre criar utilizando a função CREATE TABLE IF NOT EXISTS,
-      //assim ele não tenta criar novamente caso ela já exista
-      /*
-      tx.executeSql(
-        'CREATE TABLE IF NOT EXISTS Objetos (id_objeto INTEGER PRIMARY KEY AUTOINCREMENT' +
-          ', tipo VARCHAR(300), data_criacao DATETIME, ultima_alteracao DATETIME)',
-      );
-      */
-      //Cada nova tabela a ser criada é só utilizar a função acima
       audios.createTable(tx);
     }).catch((error) => {
       console.log("Query error: ", error);

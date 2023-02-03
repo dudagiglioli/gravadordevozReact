@@ -6,19 +6,11 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
-  header: {
-    backgroundColor: "white",
-    flex: 0.3,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-
   meio: {
     backgroundColor: "white",
     flex: 3,
     flexDirection: "row",
-    top: 30,
+    marginTop: "8%",
   },
 
   mp4: {
@@ -142,6 +134,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "red",
     padding: 100,
+  },
+
+  linha5: {
+    flexDirection: "row-reverse",
+    marginRight: "44%",
   },
 });
 

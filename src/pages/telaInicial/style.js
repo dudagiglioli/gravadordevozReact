@@ -8,10 +8,11 @@ const styles = StyleSheet.create({
 
   header: {
     backgroundColor: "white",
-    flex: 0.3,
+    // flex: 0.3,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
+    marginTop: '10%'
   },
 
   gravar: {

@@ -20,14 +20,17 @@ import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
-const audioRecorderPlayer = new AudioRecorderPlayer();
 import RNFS from "react-native-fs";
 import sqlite from "../../classes/sqlite";
 
+const audioRecorderPlayer = new AudioRecorderPlayer();
+const arrayOpcoes = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
+
 export default function TelaInicial() {
+  const [opcao, setOpcao] = useState();
+  const [nome, setNome] = useState();
   const [defaultRating, setDefaultRating] = useState(0); //definindo o estado das estrela, que se inicia em 0, ou seja, nenhuma está preenchida
   const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]); // definindo a qtde de estrelas que irá aparecer na tela
-  const arrayOpcoes = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
   const [visibleModal, setVisibleModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
@@ -40,15 +43,6 @@ export default function TelaInicial() {
     inicio: "Pronto para começar",
     grav: "Gravando",
   });
-  const [opcao, setOpcao] = useState();
-  const [nome, setNome] = useState("");
-
-  async function SalvarBanco() {
-    await sqlite.query(
-      `INSERT INTO audios (titulo,data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", " ", " ","${opcao}", "${tempograv.recordTime}", "" )`
-    );
-    console.log(await sqlite.query("SELECT * FROM audios"));
-  }
 
   //iniciar gravação
   async function startRecording() {
@@ -90,6 +84,13 @@ export default function TelaInicial() {
       return;
     });
     console.log(result);
+  }
+
+  async function SalvarBanco() {
+    const date = new Date().toLocaleString();
+    await sqlite.query(
+      `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "", "${opcao}", "${tempograv.recordTime}", "") `
+    );
   }
 
   //parar gravação
@@ -190,6 +191,7 @@ export default function TelaInicial() {
                       }}
                       style={styles.input}
                       maxLength={50}
+                      placeholderTextColor={"#3B3355"}
                       placeholder="Nome"
                     />
 
@@ -224,7 +226,7 @@ export default function TelaInicial() {
                     />
 
                     <View style={styles.linha}>
-                      <TouchableOpacity onPress={() => SalvarBanco}>
+                      <TouchableOpacity onPress={SalvarBanco}>
                         <LinearGradient
                           style={styles.salvar}
                           colors={["#BFCDE0", "#5D5D81"]}

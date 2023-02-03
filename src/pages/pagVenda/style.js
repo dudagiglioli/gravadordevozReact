@@ -197,6 +197,11 @@ const styles = StyleSheet.create({
     top: 80,
     left: -50,
   },
+
+  circle:{
+    backgroundColor: "#5D5D81",
+    borderRadius: 20
+  }
 });
 
 export default styles;

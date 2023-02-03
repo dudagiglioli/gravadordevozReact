@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, FlatList } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style";
 import { Item } from "./function";
 import LinearGradient from "react-native-linear-gradient";
@@ -9,24 +9,16 @@ import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
+import sqlite from "../../classes/sqlite";
 
 export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
+  const [lista, setLista] = useState([]);
+
   const navigation = useNavigation();
   const navegar = (tela) => {
     navigation.navigate(tela, {});
   };
-  const ARRAY = [
-    {
-      id: "1",
-      nome: "Teste.mp4",
-      data: "12/01/2023",
-      hora: "  14:50",
-      kb: "  46,21Kb",
-      tipo: "Estudo",
-      timer: "  00:45",
-    },
-  ];
 
   function toggleMusicPlay() {
     setPlayerSatate(!playerState);
@@ -36,27 +28,24 @@ export default function Audio() {
     return <Item data={item} />;
   }
 
+  useEffect(() => {
+    async function getData() {
+      // set os valores do database
+      const data = await sqlite.query("SELECT * FROM audios");
+
+      setLista(data);
+    }
+
+    getData();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.meio}>
         <FlatList
-          data={ARRAY}
+          data={lista}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-        />
-
-        <Feather
-          name="scissors"
-          color={"rgba(59, 51, 85, 1)"}
-          size={20}
-          style={styles.tesoura}
-        />
-
-        <Entypo
-          name="dots-three-vertical"
-          size={20}
-          color={"rgba(59, 51, 85, 1)"}
-          style={styles.ponto}
         />
       </View>
 

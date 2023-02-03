@@ -11,8 +11,6 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-// react-native-sqlite-storage
-import io.liteglue.SQLitePluginPackage;
 // react-native-audio-recorder-player
 import com.dooboolab.audiorecorderplayer.RNAudioRecorderPlayerPackage;
 // react-native-fs
@@ -33,6 +31,8 @@ import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-share
 import cl.json.RNSharePackage;
+// react-native-sqlite-storage
+import org.pgsqlite.SQLitePluginPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 
@@ -80,7 +80,6 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
-      new SQLitePluginPackage(),
       new RNAudioRecorderPlayerPackage(),
       new RNFSPackage(),
       new RNGestureHandlerPackage(),
@@ -91,6 +90,7 @@ public class PackageList {
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
       new RNSharePackage(),
+      new SQLitePluginPackage(),
       new VectorIconsPackage()
     ));
   }
