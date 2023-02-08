@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 
@@ -18,20 +18,20 @@ export function Item({ data }) {
       </View>
 
       <View style={styles.linha5}>
-      <Feather
-          name="scissors"
-          color={"rgba(59, 51, 85, 1)"}
-          size={20}
-          style={styles.tesoura}
-        />
-        
-
-        <Entypo
+      <TouchableOpacity>
+      <Entypo
           name="dots-three-vertical"
           size={20}
           color={"rgba(59, 51, 85, 1)"}
-          style={styles.ponto}
         />
+      </TouchableOpacity>
+    
+      <Feather
+          name="scissors"
+          color={"rgba(59, 51, 85, 1)"}
+          size={20}         
+        />
+      
         </View>
 
       <View style={styles.p2}>

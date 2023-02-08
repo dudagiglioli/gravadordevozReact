@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    marginTop: '10%'
+    marginTop: "10%",
   },
 
   gravar: {
@@ -267,6 +267,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  circle2: {
+    flexDirection: "row-reverse",
+    left: "100%",
   },
 });
 

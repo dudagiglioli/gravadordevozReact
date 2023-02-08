@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, TouchableOpacity, FlatList, Modal } from "react-native";
 import React, { useState, useEffect } from "react";
 import styles from "./style";
 import { Item } from "./function";
@@ -14,6 +14,7 @@ import sqlite from "../../classes/sqlite";
 export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
+  const [modal, setModal] = useState(false);
 
   const navigation = useNavigation();
   const navegar = (tela) => {
@@ -100,6 +101,17 @@ export default function Audio() {
           </TouchableOpacity>
         </View>
       </LinearGradient>
+
+      <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modal}
+              onRequestClose={() => {
+                setModal(!modal);
+              }}
+            >
+  
+</Modal>
     </View>
   );
 }

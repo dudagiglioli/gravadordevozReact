@@ -104,18 +104,7 @@ export default function TelaInicial() {
       recordTime: tempograv.recordTime,
     });
 
-    await RNFS.copyFile(result, RNFS.DocumentDirectoryPath + "/test.mp4")
-      .then((success) => {
-        console.log("file moved!", success);
-      })
-      .catch((err) => {
-        console.log("Error: " + err.message);
-      });
-
-    console.log("teste", result);
-
-    //"chama" o modal de salvar o audio
-    setVisibleModal(true);
+    setVisibleModal(!visibleModal);
   }
 
   function toggleMudarTela(teste) {
@@ -226,12 +215,31 @@ export default function TelaInicial() {
                     />
 
                     <View style={styles.linha}>
-                      <TouchableOpacity onPress={SalvarBanco}>
+                      <TouchableOpacity
+                        style={styles.circle2}
+                        onPress={() => setVisibleModal(false)}
+                      >
+                        <LinearGradient
+                          style={styles.btcircle}
+                          colors={["#BFCDE0", "#b0bdcf", "#96a2b3", "#697687"]}
+                        >
+                          <Feather
+                            style={styles.xicon}
+                            name="x"
+                            size={30}
+                            color="white"
+                          />
+                        </LinearGradient>
+                      </TouchableOpacity>
+
+                      <TouchableOpacity onPress={() => setVisible(!visible)}>
                         <LinearGradient
                           style={styles.salvar}
                           colors={["#BFCDE0", "#5D5D81"]}
                         >
-                          <Text style={styles.textsalvar}>Salvar</Text>
+                          <Text style={styles.textsalvar} onPress={SalvarBanco}>
+                            Salvar
+                          </Text>
                         </LinearGradient>
                       </TouchableOpacity>
 
@@ -273,7 +281,6 @@ export default function TelaInicial() {
               transparent={true}
               visible={visible}
               onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
                 setVisible(!visible);
               }}
             >
@@ -281,7 +288,7 @@ export default function TelaInicial() {
                 <View style={styles.view}>
                   <TouchableOpacity
                     style={styles.circle}
-                    onPress={() => setVisible(!visible)}
+                    onPress={() => setVisible(false)}
                   >
                     <LinearGradient
                       style={styles.btcircle}
@@ -313,6 +320,8 @@ export default function TelaInicial() {
                           if (defaultRating >= 4) {
                             InAppReview.RequestInAppReview();
                             console.log(defaultRating);
+                          } else {
+                            setVisible(false);
                           }
                         }}
                       >
@@ -328,15 +337,6 @@ export default function TelaInicial() {
                 </View>
               </View>
             </Modal>
-
-            <TouchableOpacity onPress={() => setVisible(true)}>
-              <LinearGradient
-                style={styles.text}
-                colors={["#BFCDE0", "#5D5D81"]}
-              >
-                <Text>Avaliar</Text>
-              </LinearGradient>
-            </TouchableOpacity>
           </View>
         </>
       )}
