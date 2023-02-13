@@ -102,16 +102,7 @@ export default function Audio() {
         </View>
       </LinearGradient>
 
-      <Modal
-              animationType="slide"
-              transparent={true}
-              visible={modal}
-              onRequestClose={() => {
-                setModal(!modal);
-              }}
-            >
-  
-</Modal>
+    
     </View>
   );
 }

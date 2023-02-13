@@ -125,6 +125,12 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
 
+  linha2: {
+    flexDirection: "row",
+    marginTop: 15,
+    direction: "rtl",
+  },
+
   textCancelar: {
     color: "#fff",
     fontSize: 16,
@@ -271,7 +277,9 @@ const styles = StyleSheet.create({
 
   circle2: {
     flexDirection: "row-reverse",
-    left: "100%",
+    direction: "rtl",
+    left: "50%",
+    marginTop: "-65%"
   },
 });
 

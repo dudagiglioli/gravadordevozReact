@@ -214,7 +214,7 @@ export default function TelaInicial() {
                       rowTextStyle={styles.textClick}
                     />
 
-                    <View style={styles.linha}>
+                    <View style={styles.linha2}>
                       <TouchableOpacity
                         style={styles.circle2}
                         onPress={() => setVisibleModal(false)}
@@ -231,7 +231,9 @@ export default function TelaInicial() {
                           />
                         </LinearGradient>
                       </TouchableOpacity>
+                    </View>
 
+                    <View style={styles.linha}>
                       <TouchableOpacity onPress={() => setVisible(!visible)}>
                         <LinearGradient
                           style={styles.salvar}

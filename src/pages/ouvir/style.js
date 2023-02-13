@@ -139,7 +139,84 @@ const styles = StyleSheet.create({
   linha5: {
     flexDirection: "row-reverse",
     right: 20,
-    marginTop: -20
+    marginTop: -20,
+  },
+
+  modalOpen: {
+    backgroundColor: "rgba(0,0,0,0.5)", //deixa o fundo cinza
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+  },
+
+  modalView: {
+    flexDirection: "column",
+    marginHorizontal: 30,
+    justifyContent: "center",
+    backgroundColor: "white",
+    borderRadius: 5,
+    alignItems: "center",
+    width: 300,
+    height: 200,
+  },
+
+  buttonClose: {
+    position: "absolute",
+    left: 280,
+    top: -10,
+  },
+
+  buttonCloseStyles: {
+    borderRadius: 100,
+    width: 30,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  input: {
+    marginBottom: "4%",
+    marginTop: "4%",
+    borderWidth: 1,
+    borderColor: "#3B3355",
+    padding: 10,
+    borderRadius: 5,
+    width: 262,
+    height: 47,
+    color: "#3B3355",
+    fontSize: 16,
+    fontWeight: "400",
+    fontFamily: "SofiaSans-Light",
+  },
+
+  text: {
+    color: "#3B3355",
+    fontSize: 20,
+    fontWeight: "700",
+    textAlign: "center",
+    fontFamily: "SofiaSans-Light",
+  },
+
+  Text: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "700",
+    textAlign: "center",
+    fontFamily: "SofiaSans-Light",
+  },
+
+  salvar: {
+    height: 30,
+    width: 50,
+    borderRadius: 5,
+    justifyContent: "space-around",
+    alignItems: "center",
+    marginTop: "10%",
+  },
+
+  linhadelete: {
+    flexDirection: "row",
   },
 });
 
