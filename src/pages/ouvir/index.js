@@ -33,7 +33,7 @@ export default function Audio() {
     async function getData() {
       // set os valores do database
       const data = await sqlite.query("SELECT * FROM audios");
-
+      console.log(data);
       setLista(data);
     }
 
@@ -101,8 +101,6 @@ export default function Audio() {
           </TouchableOpacity>
         </View>
       </LinearGradient>
-
-    
     </View>
   );
 }

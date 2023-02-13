@@ -17,6 +17,7 @@ import sqlite from "../../classes/sqlite";
 
 export function Item({ data }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
+  const [nome, setNome] = useState("");
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);

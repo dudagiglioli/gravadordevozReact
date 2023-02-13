@@ -91,6 +91,9 @@ export default function TelaInicial() {
     await sqlite.query(
       `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "", "${opcao}", "${tempograv.recordTime}", "") `
     );
+    setVisibleModal(true);
+    setVisible(true);
+    setVisibleModal(false);
   }
 
   //parar gravação
@@ -234,14 +237,12 @@ export default function TelaInicial() {
                     </View>
 
                     <View style={styles.linha}>
-                      <TouchableOpacity onPress={() => setVisible(!visible)}>
+                      <TouchableOpacity onPress={SalvarBanco}>
                         <LinearGradient
                           style={styles.salvar}
                           colors={["#BFCDE0", "#5D5D81"]}
                         >
-                          <Text style={styles.textsalvar} onPress={SalvarBanco}>
-                            Salvar
-                          </Text>
+                          <Text style={styles.textsalvar}>Salvar</Text>
                         </LinearGradient>
                       </TouchableOpacity>
 
