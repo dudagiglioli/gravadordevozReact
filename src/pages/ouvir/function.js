@@ -15,13 +15,15 @@ import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import sqlite from "../../classes/sqlite";
 
-export function Item({ data }) {
+//atualizar lista
+export function Item({ data, setLista }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [nome, setNome] = useState("");
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);
-    console.log(await sqlite.query("SELECT * FROM audios"));
+   setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
+
   }
 
   return (

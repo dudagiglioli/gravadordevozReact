@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, FlatList, Modal } from "react-native";
+import { View, Text, TouchableOpacity, FlatList, Modal, RefreshControl } from "react-native";
 import React, { useState, useEffect } from "react";
 import styles from "./style";
 import { Item } from "./function";
@@ -26,7 +26,7 @@ export default function Audio() {
   }
 
   function renderItem({ item }) {
-    return <Item data={item} />;
+    return <Item data={item} setLista={setLista}/>;
   }
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Audio() {
       <View style={styles.meio}>
         <FlatList
           data={lista}
-          renderItem={renderItem}
+          renderItem={renderItem }
           keyExtractor={(item) => item.id}
         />
       </View>
