@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./style";
-import { useNavigation } from "@react-navigation/native";
 import {
   View,
   Text,
@@ -16,103 +15,105 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import sqlite from "../../classes/sqlite";
 
 //atualizar lista
-export function Item({ data, setLista }) {
+export function Item({ data, setLista, Exibir}) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [nome, setNome] = useState("");
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);
-   setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
-
+    setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
   return (
     <View>
-      <Text style={styles.mp4}>{data.title}</Text>
+      <TouchableOpacity onPress={Exibir}> 
+        <Text style={styles.mp4}>{data.title}</Text>
+        <View style={styles.p1}>
+          <Text style={styles.l1}>{data.data_hora}</Text>
+          <Text style={styles.l1}>{data.hora}</Text>
+          <Text style={styles.l1}>{data.tamanho}</Text>
+        </View>
 
-      <View style={styles.p1}>
-        <Text style={styles.l1}>{data.data_hora}</Text>
-        <Text style={styles.l1}>{data.hora}</Text>
-        <Text style={styles.l1}>{data.tamanho}</Text>
-      </View>
+        <View style={styles.linha5}>
+          <TouchableOpacity onPress={() => setModalVisibleIcon(true)}>
+            <Entypo
+              name="dots-three-vertical"
+              size={20}
+              color={"rgba(59, 51, 85, 1)"}
+            />
+          </TouchableOpacity>
 
-      <View style={styles.linha5}>
-        <TouchableOpacity onPress={() => setModalVisibleIcon(true)}>
-          <Entypo
-            name="dots-three-vertical"
-            size={20}
-            color={"rgba(59, 51, 85, 1)"}
-          />
-        </TouchableOpacity>
+          <Feather name="scissors" color={"rgba(59, 51, 85, 1)"} size={20} />
+        </View>
 
-        <Feather name="scissors" color={"rgba(59, 51, 85, 1)"} size={20} />
-      </View>
+        <View style={styles.p2}>
+          <Text style={styles.tipo}>{data.tags}</Text>
+          <Text style={styles.timer}>{data.duracao}</Text>
+        </View>
 
-      <View style={styles.p2}>
-        <Text style={styles.tipo}>{data.tags}</Text>
-        <Text style={styles.timer}>{data.duracao}</Text>
-      </View>
+        <View style={styles.linhadivide} />
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisibleIcon}
-        enum="overFullScreen"
-        onRequestClose={() => {
-          setModalVisibleIcon(!setModalVisibleIcon);
-        }}
-      >
-        <TouchableWithoutFeedback
-          onPress={() => setModalVisibleIcon(!modalVisibleIcon)}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleIcon}
+          enum="overFullScreen"
+          onRequestClose={() => {
+            setModalVisibleIcon(!setModalVisibleIcon);
+          }}
         >
-          <View style={styles.modalOpen}>
-            <View style={styles.modalView}>
-              <TouchableOpacity
-                style={styles.buttonClose}
-                onPress={() => setModalVisibleIcon(false)}
-              >
-                <LinearGradient
-                  colors={["#BFCDE0", "#5D5D81"]}
-                  style={styles.buttonCloseStyles}
+          <TouchableWithoutFeedback
+            onPress={() => setModalVisibleIcon(!modalVisibleIcon)}
+          >
+            <View style={styles.modalOpen}>
+              <View style={styles.modalView}>
+                <TouchableOpacity
+                  style={styles.buttonClose}
+                  onPress={() => setModalVisibleIcon(false)}
                 >
-                  <AntDesign name="close" size={20} color="#fff" />
-                </LinearGradient>
-              </TouchableOpacity>
-
-              <Text style={styles.text}>Propriedades</Text>
-
-              <TextInput
-                onChangeText={(tex) => {
-                  setNome(tex);
-                }}
-                style={styles.input}
-                placeholderTextColor={"#3B3355"}
-                placeholder="Nome"
-              />
-
-              <View style={styles.linhadelete}>
-                <TouchableOpacity>
                   <LinearGradient
                     colors={["#BFCDE0", "#5D5D81"]}
-                    style={styles.salvar}
+                    style={styles.buttonCloseStyles}
                   >
-                    <Text style={styles.Text}>Editar</Text>
+                    <AntDesign name="close" size={20} color="#fff" />
                   </LinearGradient>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => deleteId(data.id_audio)}>
-                  <LinearGradient
-                    colors={["#BFCDE0", "#5D5D81"]}
-                    style={styles.salvar}
-                  >
-                    <AntDesign name="delete" size={25} color="#fff" />
-                  </LinearGradient>
-                </TouchableOpacity>
+                <Text style={styles.text}>Propriedades</Text>
+
+                <TextInput
+                  onChangeText={(tex) => {
+                    setNome(tex);
+                  }}
+                  style={styles.input}
+                  placeholderTextColor={"#3B3355"}
+                  placeholder="Nome"
+                />
+
+                <View style={styles.linhadelete}>
+                  <TouchableOpacity>
+                    <LinearGradient
+                      colors={["#BFCDE0", "#5D5D81"]}
+                      style={styles.salvar}
+                    >
+                      <Text style={styles.Text}>Editar</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => deleteId(data.id_audio)}>
+                    <LinearGradient
+                      colors={["#BFCDE0", "#5D5D81"]}
+                      style={styles.salvar}
+                    >
+                      <AntDesign name="delete" size={25} color="#fff" />
+                    </LinearGradient>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+          </TouchableWithoutFeedback>
+        </Modal>
+      </TouchableOpacity>
     </View>
   );
 }

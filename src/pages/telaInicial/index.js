@@ -87,9 +87,10 @@ export default function TelaInicial() {
   }
 
   async function SalvarBanco() {
-    const date = new Date().toLocaleString();
+    const date = new Date().toLocaleDateString();
+
     await sqlite.query(
-      `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "", "${opcao}", "${tempograv.recordTime}", "") `
+      `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho)VALUES ("${nome}", "${date}", "", "${opcao}", "${tempograv.recordTime}", "") `
     );
     setVisibleModal(true);
     setVisible(true);

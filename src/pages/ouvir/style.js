@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     textAlign: "justify",
     left: 25,
     fontFamily: "SofiaSans-Light",
+    marginTop: "3%",
   },
 
   p1: {
@@ -217,6 +218,14 @@ const styles = StyleSheet.create({
 
   linhadelete: {
     flexDirection: "row",
+  },
+
+  linhadivide: {
+    backgroundColor: "#BFCDE0",
+    height: 1,
+    marginTop: "2%",
+    width: "90%",
+    left: "5%",
   },
 });
 
