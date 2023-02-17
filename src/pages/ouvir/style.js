@@ -33,6 +33,13 @@ const styles = StyleSheet.create({
     fontFamily: "SofiaSans-Light",
   },
 
+  l2: {
+    fontSize: 10,
+    color: "rgba(0, 0, 0, 0.5)",
+    fontFamily: "SofiaSans-Light",
+    left: 10,
+  },
+
   p2: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -51,6 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "rgba(0, 0, 0, 0.5)",
     fontFamily: "SofiaSans-Light",
+    left: 10,
   },
 
   tesoura: {
@@ -227,6 +235,14 @@ const styles = StyleSheet.create({
     width: "90%",
     left: "5%",
   },
+
+  backg: {
+    backgroundColor: "#e9f0ef"
+  },
+
+  backg2: {
+    backgroundColor: "white"
+  }
 });
 
 export default styles;

@@ -13,7 +13,7 @@ export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
-
+  const [background, setBackground] = useState(false);
   const navigation = useNavigation();
   const navegar = (tela) => {
     navigation.navigate(tela, {});
@@ -49,11 +49,15 @@ export default function Audio() {
   return (
     <View style={styles.container}>
       <View style={styles.meio}>
+      {background ? 
+            (<View style={styles.backg}/>) :
+            (<View style={styles.backg2}/>) }
         <FlatList
           data={lista}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
         />
+
       </View>
 
       {exibirPlayer ? (

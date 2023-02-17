@@ -15,7 +15,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import sqlite from "../../classes/sqlite";
 
 //atualizar lista
-export function Item({ data, setLista, Exibir}) {
+export function Item({ data, setLista, Exibir }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [nome, setNome] = useState("");
 
@@ -26,12 +26,13 @@ export function Item({ data, setLista, Exibir}) {
 
   return (
     <View>
-      <TouchableOpacity onPress={Exibir}> 
+      <TouchableOpacity onPress={Exibir}>
+        
         <Text style={styles.mp4}>{data.title}</Text>
         <View style={styles.p1}>
-          <Text style={styles.l1}>{data.data_hora}</Text>
-          <Text style={styles.l1}>{data.hora}</Text>
-          <Text style={styles.l1}>{data.tamanho}</Text>
+          <Text style={styles.l1}>{data.data}</Text>
+          <Text style={styles.l2}>{data.hora}</Text>
+          <Text style={styles.l2}>{data.tamanho}</Text>
         </View>
 
         <View style={styles.linha5}>

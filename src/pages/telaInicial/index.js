@@ -13,14 +13,12 @@ import React, { useState, useEffect } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 import Audio from "../ouvir";
-import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
-import RNFS from "react-native-fs";
 import sqlite from "../../classes/sqlite";
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
@@ -88,9 +86,10 @@ export default function TelaInicial() {
 
   async function SalvarBanco() {
     const date = new Date().toLocaleDateString();
+    const Time = new Date().toLocaleTimeString();
 
     await sqlite.query(
-      `INSERT INTO audios (title, data_hora, tamanho, tags, duracao, caminho)VALUES ("${nome}", "${date}", "", "${opcao}", "${tempograv.recordTime}", "") `
+      `INSERT INTO audios (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "", "${opcao}", "${tempograv.recordTime}", "") `
     );
     setVisibleModal(true);
     setVisible(true);
