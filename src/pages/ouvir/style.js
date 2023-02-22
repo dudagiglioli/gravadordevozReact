@@ -237,12 +237,12 @@ const styles = StyleSheet.create({
   },
 
   backg: {
-    backgroundColor: "#e9f0ef"
+    backgroundColor: "red",
   },
 
   backg2: {
-    backgroundColor: "white"
-  }
+    backgroundColor: "white",
+  },
 });
 
 export default styles;

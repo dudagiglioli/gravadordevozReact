@@ -24,14 +24,17 @@ export function Item({ data, setLista, Exibir }) {
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
-  async function UpdateUser(title) {
-    const [userName, setUserName] = useState("");
-    await sqlite.query("UPDATE audio set title=? where id_audio=?", [title]);
+  async function UpdateName(title) {
+    await sqlite.query("UPDATE audios set title=? WHERE id_audio=?", [title]);
+    setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
   return (
     <View>
-      <TouchableOpacity onPress={Exibir} > 
+      <TouchableOpacity
+        onPress={Exibir}
+        // style={[styles.backg, Exibir ? styles.backg2 : false]}
+      >
         <Text style={styles.mp4}>{data.title}</Text>
         <View style={styles.p1}>
           <Text style={styles.l1}>{data.data}</Text>
@@ -96,7 +99,7 @@ export function Item({ data, setLista, Exibir }) {
                 />
 
                 <View style={styles.linhadelete}>
-                  <TouchableOpacity onPress={() => UpdateUser(data.title)}>
+                  <TouchableOpacity onPress={() => UpdateName(data.title)}>
                     <LinearGradient
                       colors={["#BFCDE0", "#5D5D81"]}
                       style={styles.salvar}

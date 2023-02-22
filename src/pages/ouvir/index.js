@@ -17,7 +17,7 @@ export default function Audio() {
   const navegar = (tela) => {
     navigation.navigate(tela, {});
   };
-const [color, setColor] = useState("active")
+
   // const [color, setColor] = useState({
   //   inicio: styles.backg2,
   //   play: styles.backg,
