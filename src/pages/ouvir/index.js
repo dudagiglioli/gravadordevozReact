@@ -13,11 +13,15 @@ export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
-  const [background, setBackground] = useState(false);
   const navigation = useNavigation();
   const navegar = (tela) => {
     navigation.navigate(tela, {});
   };
+const [color, setColor] = useState("active")
+  // const [color, setColor] = useState({
+  //   inicio: styles.backg2,
+  //   play: styles.backg,
+  // });
 
   function toggleMusicPlay() {
     setPlayerSatate(!playerState);
@@ -29,10 +33,7 @@ export default function Audio() {
   }
 
   function renderItem({ item }) {
-    return <Item 
-    data={item} 
-    setLista={setLista} 
-    Exibir={Exibir} />; //chamar o player
+    return <Item data={item} setLista={setLista} Exibir={Exibir} />; //chamar o player
   }
 
   useEffect(() => {
@@ -49,15 +50,18 @@ export default function Audio() {
   return (
     <View style={styles.container}>
       <View style={styles.meio}>
-      {background ? 
-            (<View style={styles.backg}/>) :
-            (<View style={styles.backg2}/>) }
         <FlatList
           data={lista}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
+          style={[styles.backg2, exibirPlayer ? styles.backg : false]}
         />
 
+        {/* {playerState ? (
+          color.inicio
+        ) : (
+         color.play
+        )} */}
       </View>
 
       {exibirPlayer ? (
