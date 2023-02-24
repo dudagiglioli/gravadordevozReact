@@ -54,14 +54,11 @@ export default function Audio() {
           data={lista}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-          style={[styles.backg2, exibirPlayer ? styles.backg : false]}
+          style={[
+            styles.backg2,
+            exibirPlayer === "id_audio" ? styles.backg : false,
+          ]}
         />
-
-        {/* {playerState ? (
-          color.inicio
-        ) : (
-         color.play
-        )} */}
       </View>
 
       {exibirPlayer ? (
