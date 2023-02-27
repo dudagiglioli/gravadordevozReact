@@ -18,6 +18,7 @@ import sqlite from "../../classes/sqlite";
 export function Item({ data, setLista, Exibir }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [nome, setNome] = useState("");
+  const [id, setID] = useState(data.id_audio);
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);
@@ -29,12 +30,14 @@ export function Item({ data, setLista, Exibir }) {
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
+  
   return (
     <View>
       <TouchableOpacity
-        onPress={Exibir}
+        onPress={() => setID("id_audio")}style={[styles.backg2, id === "id_audio" ? styles.backg : false]}
         // style={[styles.backg, Exibir ? styles.backg2 : false]}
       >
+
         <Text style={styles.mp4}>{data.title}</Text>
         <View style={styles.p1}>
           <Text style={styles.l1}>{data.data}</Text>

@@ -13,15 +13,11 @@ export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
+  const [id, setID] = useState("data.id_audio");
   const navigation = useNavigation();
   const navegar = (tela) => {
     navigation.navigate(tela, {});
   };
-
-  // const [color, setColor] = useState({
-  //   inicio: styles.backg2,
-  //   play: styles.backg,
-  // });
 
   function toggleMusicPlay() {
     setPlayerSatate(!playerState);
@@ -54,10 +50,7 @@ export default function Audio() {
           data={lista}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-          style={[
-            styles.backg2,
-            exibirPlayer === "id_audio" ? styles.backg : false,
-          ]}
+          // style={[styles.backg2, id === "id_audio" ? styles.backg : false]}
         />
       </View>
 

@@ -20,6 +20,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 import sqlite from "../../classes/sqlite";
+import RNFS from 'react-native-fs';
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
 const arrayOpcoes = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
@@ -41,6 +42,10 @@ export default function TelaInicial() {
     inicio: "Pronto para começar",
     grav: "Gravando",
   });
+
+  const [downloadsFolder, setDownloadsFolder] = useState('');
+  const [documentsFolder, setDocumentsFolder] = useState('');
+  const [externalDirectory, setExternalDirectory] = useState('');
 
   //iniciar gravação
   async function startRecording() {
