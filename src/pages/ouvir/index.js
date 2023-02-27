@@ -13,7 +13,6 @@ export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
-  const [id, setID] = useState("data.id_audio");
   const navigation = useNavigation();
   const navegar = (tela) => {
     navigation.navigate(tela, {});
@@ -29,7 +28,14 @@ export default function Audio() {
   }
 
   function renderItem({ item }) {
-    return <Item data={item} setLista={setLista} Exibir={Exibir} />; //chamar o player
+    return (
+      <Item
+        data={item}
+        setLista={setLista}
+        setExibirPLayer={setExibirPLayer}
+        exibirPlayer={exibirPlayer}
+      />
+    ); //chamar o player
   }
 
   useEffect(() => {

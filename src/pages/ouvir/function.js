@@ -15,10 +15,9 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import sqlite from "../../classes/sqlite";
 
 //atualizar lista
-export function Item({ data, setLista, Exibir }) {
+export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [nome, setNome] = useState("");
-  const [id, setID] = useState(data.id_audio);
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);
@@ -26,18 +25,25 @@ export function Item({ data, setLista, Exibir }) {
   }
 
   async function UpdateName(id_audio) {
-    await sqlite.query(`UPDATE audios SET title = "${nome}" WHERE id_audio = ${id_audio}`);
+    await sqlite.query(
+      `UPDATE audios SET title = "${nome}" WHERE id_audio = ${id_audio}`
+    );
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
-  
+  console.log(id);
+
   return (
     <View>
       <TouchableOpacity
-        onPress={() => setID("id_audio")}style={[styles.backg2, id === "id_audio" ? styles.backg : false]}
-        // style={[styles.backg, Exibir ? styles.backg2 : false]}
+        onPress={() => setExibirPLayer(data.id_audio)}
+        style={[
+          styles.backg2,
+          exibirPlayer === data.id_audio ? styles.backg : false,
+        ]}
+        // puxando o exibir player(PAI) para mudar a cor de cada item selecionado pelo ID(filhos) e aparecer o player
+        // OBS: quando for chamar algo(do BD ou outro lugar), não colocar entre aspas pq ñ estará funcionando, será considerado uma palavra
       >
-
         <Text style={styles.mp4}>{data.title}</Text>
         <View style={styles.p1}>
           <Text style={styles.l1}>{data.data}</Text>
