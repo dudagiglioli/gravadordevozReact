@@ -31,8 +31,6 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
-  console.log(id);
-
   return (
     <View>
       <TouchableOpacity

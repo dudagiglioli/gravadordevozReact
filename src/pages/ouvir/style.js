@@ -237,7 +237,10 @@ const styles = StyleSheet.create({
   },
 
   backg: {
-    backgroundColor: "red",
+    backgroundColor: "#E6E8FA",
+    width: "90%",
+    left:"5%",
+    borderRadius: 5,
   },
 
   backg2: {

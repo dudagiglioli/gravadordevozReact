@@ -20,7 +20,7 @@ import Entypo from "react-native-vector-icons/Entypo";
 import InAppReview from "react-native-in-app-review";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
 import sqlite from "../../classes/sqlite";
-import RNFS from 'react-native-fs';
+import RNFS from "react-native-fs";
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
 const arrayOpcoes = ["Sem Tag", "Estudo", "Faculdade", "Minhas Músicas"];
@@ -42,10 +42,11 @@ export default function TelaInicial() {
     inicio: "Pronto para começar",
     grav: "Gravando",
   });
+  const [tamanhoArq, setTamanhoArq] = useState();
 
-  const [downloadsFolder, setDownloadsFolder] = useState('');
-  const [documentsFolder, setDocumentsFolder] = useState('');
-  const [externalDirectory, setExternalDirectory] = useState('');
+  const [downloadsFolder, setDownloadsFolder] = useState("");
+  const [documentsFolder, setDocumentsFolder] = useState("");
+  const [externalDirectory, setExternalDirectory] = useState("");
 
   //iniciar gravação
   async function startRecording() {
@@ -112,7 +113,24 @@ export default function TelaInicial() {
       recordTime: tempograv.recordTime,
     });
 
-    setVisibleModal(!visibleModal);
+    // const nomeArquivo = Math.random(0, 1000);
+
+    // await RNFS.copyFile(
+    //   result,
+    //   RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
+    // )
+    //   .then((success) => {
+    //     console.log("file moved!", success);
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error: " + err.message);
+    //   });
+
+    // const { size } = await RNFS.stat(RNFS.DocumentDirectoryPath + nomeArquivo);
+
+    // setTamanhoArq(size);
+
+    setVisibleModal(true);
   }
 
   function toggleMudarTela(teste) {
