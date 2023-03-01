@@ -137,6 +137,32 @@ export default function TelaInicial() {
     setGravar(teste);
   }
 
+  //tocar audio
+  async function onStartPlay() {
+    console.log('onStartPlay');
+    const msg = await audioRecorderPlayer.startPlayer();
+    console.log(msg);
+    audioRecorderPlayer.addPlayBackListener((e) => {
+      setTempoGrav({
+        currentPositionSec: e.currentPosition,
+        currentDurationSec: e.duration,
+        playTime: audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)),
+        duration: audioRecorderPlayer.mmssss(Math.floor(e.duration)),
+      });
+      return;
+    });
+  };
+  
+  async function onPausePlay() {
+    await audioRecorderPlayer.pausePlayer();
+  };
+  
+  async function onStopPlay() {
+    console.log('onStopPlay');
+    this.audioRecorderPlayer.stopPlayer();
+    this.audioRecorderPlayer.removePlayBackListener();
+  };
+
   const RatingBar = () => {
     return (
       <View style={styles.ratingBarStyle}>

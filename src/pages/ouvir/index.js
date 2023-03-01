@@ -9,7 +9,7 @@ import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
 import sqlite from "../../classes/sqlite";
 
-export default function Audio() {
+export default function Audio(onStartPlay, onPausePlay, onStopPlay) {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
@@ -78,6 +78,9 @@ export default function Audio() {
               trackClickable={true}
               maximumTrackTintColor="#e9f0ef"
               minimumTrackTintColor="#fff"
+              onValueChange={(value) => {
+                console.log(value);
+              }}
             />
             <Text style={styles.text4}>00:45</Text>
           </View>
