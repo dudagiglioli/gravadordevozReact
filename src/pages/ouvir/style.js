@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E8FA",
     width: "90%",
     left:"5%",
-    borderRadius: 5,
+    borderRadius: 3,
   },
 
   backg2: {

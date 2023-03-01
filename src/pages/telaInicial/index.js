@@ -113,22 +113,22 @@ export default function TelaInicial() {
       recordTime: tempograv.recordTime,
     });
 
-    // const nomeArquivo = Math.random(0, 1000);
+    const nomeArquivo = Math.random(0, 1000);
 
-    // await RNFS.copyFile(
-    //   result,
-    //   RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
-    // )
-    //   .then((success) => {
-    //     console.log("file moved!", success);
-    //   })
-    //   .catch((err) => {
-    //     console.log("Error: " + err.message);
-    //   });
-
-    // const { size } = await RNFS.stat(RNFS.DocumentDirectoryPath + nomeArquivo);
-
-    // setTamanhoArq(size);
+    await RNFS.copyFile(
+      result,
+      RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
+    )
+      .then(async (success) => {
+        console.log("file moved!", success);
+        const { size } = await RNFS.stat(
+          RNFS.DocumentDirectoryPath + nomeArquivo
+        );
+        setTamanhoArq(size);
+      })
+      .catch((err) => {
+        console.log("Error: " + err.message);
+      });
 
     setVisibleModal(true);
   }
