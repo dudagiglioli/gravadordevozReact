@@ -8,8 +8,11 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
 import sqlite from "../../classes/sqlite";
+import AudioRecorderPlayer from "react-native-audio-recorder-player";
 
-export default function Audio(onStartPlay, onPausePlay, onStopPlay) {
+const audioRecorderPlayer = new AudioRecorderPlayer(); //p tocar o audio
+
+export default function Audio() {
   const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
@@ -17,6 +20,7 @@ export default function Audio(onStartPlay, onPausePlay, onStopPlay) {
   const navegar = (tela) => {
     navigation.navigate(tela, {});
   };
+  const [recording, setRecording] = useState(false);
 
   function toggleMusicPlay() {
     setPlayerSatate(!playerState);
@@ -36,6 +40,33 @@ export default function Audio(onStartPlay, onPausePlay, onStopPlay) {
         exibirPlayer={exibirPlayer}
       />
     ); //chamar o player
+  }
+
+  // tocar audio
+  async function onStartPlay() {
+    const msg = await audioRecorderPlayer.startPlayer();
+    console.log(msg);
+    this.audioRecorderPlayer.addPlayBackListener((e) => {
+      this.setTempoGrav({
+        currentPositionSec: e.currentPosition,
+        currentDurationSec: e.duration,
+        playTime: this.audioRecorderPlayer.mmssss(
+          Math.floor(e.currentPosition)
+        ),
+        duration: this.audioRecorderPlayer.mmssss(Math.floor(e.duration)),
+      });
+      return;
+    });
+  }
+
+  async function onPausePlay() {
+    await this.audioRecorderPlayer.pausePlayer();
+  }
+
+  async function onStopPlay() {
+    console.log("onStopPlay");
+    this.audioRecorderPlayer.stopPlayer();
+    this.audioRecorderPlayer.removePlayBackListener();
   }
 
   useEffect(() => {
@@ -100,6 +131,7 @@ export default function Audio(onStartPlay, onPausePlay, onStopPlay) {
                   name="ios-stop-circle-outline"
                   size={100}
                   color={"white"}
+                  onPress={recording ? onPausePlay : onStartPlay}
                 />
               ) : (
                 <Ionicons

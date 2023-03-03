@@ -40,6 +40,13 @@ const styles = StyleSheet.create({
     left: 10,
   },
 
+  l3: {
+    fontSize: 10,
+    color: "rgba(0, 0, 0, 0.5)",
+    fontFamily: "SofiaSans-Light",
+    left: 20,
+  },
+
   p2: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -239,7 +246,7 @@ const styles = StyleSheet.create({
   backg: {
     backgroundColor: "#E6E8FA",
     width: "90%",
-    left:"5%",
+    left: "5%",
     borderRadius: 3,
   },
 

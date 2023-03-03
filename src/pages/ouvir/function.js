@@ -46,7 +46,7 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
         <View style={styles.p1}>
           <Text style={styles.l1}>{data.data}</Text>
           <Text style={styles.l2}>{data.hora}</Text>
-          <Text style={styles.l2}>{data.tamanho}</Text>
+          <Text style={styles.l3}>{data.tamanho}</Text>
         </View>
 
         <View style={styles.linha5}>

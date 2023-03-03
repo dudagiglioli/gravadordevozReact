@@ -95,7 +95,7 @@ export default function TelaInicial() {
     const Time = new Date().toLocaleTimeString();
 
     await sqlite.query(
-      `INSERT INTO audios (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "", "${opcao}", "${tempograv.recordTime}", "") `
+      `INSERT INTO audios (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "${tamanhoArq}", "${opcao}", "${tempograv.recordTime}", "") `
     );
     setVisibleModal(true);
     setVisible(true);
@@ -113,7 +113,7 @@ export default function TelaInicial() {
       recordTime: tempograv.recordTime,
     });
 
-    const nomeArquivo = Math.random(0, 1000);
+    const nomeArquivo = Math.floor(Math.random() * 2000);
 
     await RNFS.copyFile(
       result,
@@ -122,7 +122,7 @@ export default function TelaInicial() {
       .then(async (success) => {
         console.log("file moved!", success);
         const { size } = await RNFS.stat(
-          RNFS.DocumentDirectoryPath + nomeArquivo
+          RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
         );
         setTamanhoArq(size);
       })
@@ -136,32 +136,6 @@ export default function TelaInicial() {
   function toggleMudarTela(teste) {
     setGravar(teste);
   }
-
-  //tocar audio
-  async function onStartPlay() {
-    console.log('onStartPlay');
-    const msg = await audioRecorderPlayer.startPlayer();
-    console.log(msg);
-    audioRecorderPlayer.addPlayBackListener((e) => {
-      setTempoGrav({
-        currentPositionSec: e.currentPosition,
-        currentDurationSec: e.duration,
-        playTime: audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)),
-        duration: audioRecorderPlayer.mmssss(Math.floor(e.duration)),
-      });
-      return;
-    });
-  };
-  
-  async function onPausePlay() {
-    await audioRecorderPlayer.pausePlayer();
-  };
-  
-  async function onStopPlay() {
-    console.log('onStopPlay');
-    this.audioRecorderPlayer.stopPlayer();
-    this.audioRecorderPlayer.removePlayBackListener();
-  };
 
   const RatingBar = () => {
     return (
