@@ -125,6 +125,8 @@ export default function TelaInicial() {
           RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
         );
         setTamanhoArq(size);
+
+        console.log(nomeArquivo);
       })
       .catch((err) => {
         console.log("Error: " + err.message);

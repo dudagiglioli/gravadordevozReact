@@ -102,9 +102,9 @@ export default function Audio() {
                 marginLeft: "6%",
               }}
               thumbTintColor="#FFFFFF"
-              value={2}
+              value={1}
               minimumValue={1}
-              maximumValue={5}
+              maximumValue={20}
               step={2}
               trackClickable={true}
               maximumTrackTintColor="#e9f0ef"
@@ -112,7 +112,32 @@ export default function Audio() {
               onValueChange={(value) => {
                 console.log(value);
               }}
+//slider acompanhar o audio
+              onSlidingStart={
+                () => {
+                  if(!onStartPlay) return;
+
+                  try{
+                    pause(onPausePlay)
+                  } catch(error){
+                    console.log('error inside onSlidingStart callback', error);
+                  }
+                  
+                }
+              }
+
+              onSlidingComplete={async (value) => {
+                if(onStartPlay == null) return;
+
+                try{
+                  const status = await onStartPlay.setPositionAsync(Math.floor
+                    (onStartPlay({onStartPlay: status, playbackPosition: status})))
+                } catch(error){
+                  console.log('error inside onSlidingStart callback', error);
+                }
+              }}
             />
+
             <Text style={styles.text4}>00:45</Text>
           </View>
 
