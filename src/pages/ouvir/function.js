@@ -37,7 +37,7 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
       return data.id_audio === setExibirPLayer;
     });
 
-    setLista = _.indexOf(_.pluck("id_audio"), data);
+    index = _.indexOf(_.pluck("id_audio"), data);
 
     console.log(index);
   }

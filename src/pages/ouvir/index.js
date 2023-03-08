@@ -186,7 +186,6 @@ export default function Audio() {
                   name="ios-stop-circle-outline"
                   size={100}
                   color={"white"}
-                  onPress={idTeste}
                 />
               ) : (
                 <Ionicons
