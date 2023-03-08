@@ -44,6 +44,7 @@ export default function Audio() {
 
   // tocar audio
   async function onStartPlay() {
+    setRecording(true);
     const msg = await audioRecorderPlayer.startPlayer();
     console.log(msg);
     this.audioRecorderPlayer.addPlayBackListener((e) => {
@@ -60,7 +61,8 @@ export default function Audio() {
   }
 
   async function onPausePlay() {
-    await this.audioRecorderPlayer.pausePlayer();
+    setRecording(false);
+    await audioRecorderPlayer.pausePlayer();
   }
 
   async function onStopPlay() {
@@ -79,6 +81,32 @@ export default function Audio() {
 
     getData();
   }, []);
+
+
+
+  // const changeAudio= async(context, select) => {
+  // plabackObj,
+  // currentAudioIndex,
+  // totalAudioCount,
+  // audioFiles,
+  // updateState
+  // } = context;
+  // try{
+  //   const {isLoaded} = await plabackObj.getStatusAsync()
+  //   const isLastAudio = currentAudioIndex + 1 === totalAudioCount;
+  //   const isFirstAudio = currentAudioIndex <= 0;
+  // }
+
+  // if (select == 'next'){
+  //   audio = audioFiles[currentAudioIndex +1]
+
+  //   if(isLoaded && !isLastAudio){
+
+  //   }
+  // const handleNext = async () =>{
+  //   const {isLoaded} = await context.recording.getStatusAsync();
+  //   const isLastAudio = context.id_audio + 1 ===
+  // }
 
   return (
     <View style={styles.container}>
@@ -112,28 +140,30 @@ export default function Audio() {
               onValueChange={(value) => {
                 console.log(value);
               }}
-//slider acompanhar o audio
-              onSlidingStart={
-                () => {
-                  if(!onStartPlay) return;
+              //slider acompanhar o audio
+              onSlidingStart={() => {
+                if (!onStartPlay) return;
 
-                  try{
-                    pause(onPausePlay)
-                  } catch(error){
-                    console.log('error inside onSlidingStart callback', error);
-                  }
-                  
+                try {
+                  pause(onPausePlay);
+                } catch (error) {
+                  console.log("error inside onSlidingStart callback", error);
                 }
-              }
-
+              }}
               onSlidingComplete={async (value) => {
-                if(onStartPlay == null) return;
+                if (onStartPlay == null) return;
 
-                try{
-                  const status = await onStartPlay.setPositionAsync(Math.floor
-                    (onStartPlay({onStartPlay: status, playbackPosition: status})))
-                } catch(error){
-                  console.log('error inside onSlidingStart callback', error);
+                try {
+                  const status = await onStartPlay.setPositionAsync(
+                    Math.floor(
+                      onStartPlay({
+                        onStartPlay: status,
+                        playbackPosition: status,
+                      })
+                    )
+                  );
+                } catch (error) {
+                  console.log("error inside onSlidingStart callback", error);
                 }
               }}
             />
@@ -150,13 +180,13 @@ export default function Audio() {
               <AntDesign name="banckward" color={"white"} size={30} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={toggleMusicPlay}>
-              {playerState ? (
+            <TouchableOpacity onPress={recording ? onPausePlay : onStartPlay}>
+              {recording ? (
                 <Ionicons
                   name="ios-stop-circle-outline"
                   size={100}
                   color={"white"}
-                  onPress={recording ? onPausePlay : onStartPlay}
+                  onPress={idTeste}
                 />
               ) : (
                 <Ionicons
