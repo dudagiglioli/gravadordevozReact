@@ -31,17 +31,6 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
 
-  //ver posição da array
-  async function idTeste(index) {
-    index = _.findIndex(function (data) {
-      return data.id_audio === setExibirPLayer;
-    });
-
-    index = _.indexOf(_.pluck("id_audio"), data);
-
-    console.log(index);
-  }
-
   return (
     <View>
       <TouchableOpacity

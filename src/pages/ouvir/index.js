@@ -9,6 +9,7 @@ import { Slider } from "@miblanchard/react-native-slider";
 import { useNavigation } from "@react-navigation/native";
 import sqlite from "../../classes/sqlite";
 import AudioRecorderPlayer from "react-native-audio-recorder-player";
+import _ from "lodash";
 
 const audioRecorderPlayer = new AudioRecorderPlayer(); //p tocar o audio
 
@@ -21,6 +22,12 @@ export default function Audio() {
     navigation.navigate(tela, {});
   };
   const [recording, setRecording] = useState(false);
+  const [posicaoTimerAudio, setPosicaoTimerAudio] = useState({
+    currentPositionSec: 1,
+    currentDurationSec: 20,
+    playTime: "00:00",
+    duration: "00:00",
+  });
 
   function toggleMusicPlay() {
     setPlayerSatate(!playerState);
@@ -42,20 +49,61 @@ export default function Audio() {
     ); //chamar o player
   }
 
+  //ver posição da array
+  async function idTeste() {
+    try {
+      let index;
+      _.findIndex(lista, (valor, i) => {
+        if (valor.id_audio === exibirPlayer) {
+          index = i;
+        }
+      });
+
+      setExibirPLayer(lista[index + 1].id_audio);
+      console.log(index);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //ver posição da array
+  async function idVoltar() {
+    try {
+      let index;
+      _.findIndex(lista, (valor, i) => {
+        if (valor.id_audio === exibirPlayer) {
+          index = i;
+        }
+      });
+
+      setExibirPLayer(lista[index - 1].id_audio);
+      console.log(index);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   // tocar audio
   async function onStartPlay() {
+    let index;
+    _.findIndex(lista, (valor, i) => {
+      if (valor.id_audio === exibirPlayer) {
+        index = i;
+      }
+    });
     setRecording(true);
-    const msg = await audioRecorderPlayer.startPlayer();
+    const msg = await audioRecorderPlayer.startPlayer(lista[index].caminho);
     console.log(msg);
-    this.audioRecorderPlayer.addPlayBackListener((e) => {
-      this.setTempoGrav({
+    audioRecorderPlayer.addPlayBackListener((e) => {
+      setPosicaoTimerAudio({
         currentPositionSec: e.currentPosition,
         currentDurationSec: e.duration,
-        playTime: this.audioRecorderPlayer.mmssss(
-          Math.floor(e.currentPosition)
+        playTime: audioRecorderPlayer.mmss(
+          Math.floor(e.currentPosition / 1000)
         ),
-        duration: this.audioRecorderPlayer.mmssss(Math.floor(e.duration)),
+        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
       });
+
       return;
     });
   }
@@ -67,8 +115,8 @@ export default function Audio() {
 
   async function onStopPlay() {
     console.log("onStopPlay");
-    this.audioRecorderPlayer.stopPlayer();
-    this.audioRecorderPlayer.removePlayBackListener();
+    audioRecorderPlayer.stopPlayer();
+    audioRecorderPlayer.removePlayBackListener();
   }
 
   useEffect(() => {
@@ -81,8 +129,6 @@ export default function Audio() {
 
     getData();
   }, []);
-
-
 
   // const changeAudio= async(context, select) => {
   // plabackObj,
@@ -115,14 +161,13 @@ export default function Audio() {
           data={lista}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-          // style={[styles.backg2, id === "id_audio" ? styles.backg : false]}
         />
       </View>
 
       {exibirPlayer ? (
         <LinearGradient style={styles.footer} colors={["#BFCDE0", "#5D5D81"]}>
           <View style={styles.view}>
-            <Text style={styles.text3}>00:00</Text>
+            <Text style={styles.text3}>{posicaoTimerAudio.playTime}</Text>
             <Slider
               containerStyle={{
                 flex: 1,
@@ -130,53 +175,24 @@ export default function Audio() {
                 marginLeft: "6%",
               }}
               thumbTintColor="#FFFFFF"
-              value={1}
+              value={posicaoTimerAudio.currentPositionSec} //posição que está a "bolinha do slider"
               minimumValue={1}
-              maximumValue={20}
-              step={2}
+              maximumValue={posicaoTimerAudio.currentDurationSec}
+              step={1}
               trackClickable={true}
               maximumTrackTintColor="#e9f0ef"
               minimumTrackTintColor="#fff"
-              onValueChange={(value) => {
-                console.log(value);
-              }}
-              //slider acompanhar o audio
-              onSlidingStart={() => {
-                if (!onStartPlay) return;
-
-                try {
-                  pause(onPausePlay);
-                } catch (error) {
-                  console.log("error inside onSlidingStart callback", error);
-                }
-              }}
-              onSlidingComplete={async (value) => {
-                if (onStartPlay == null) return;
-
-                try {
-                  const status = await onStartPlay.setPositionAsync(
-                    Math.floor(
-                      onStartPlay({
-                        onStartPlay: status,
-                        playbackPosition: status,
-                      })
-                    )
-                  );
-                } catch (error) {
-                  console.log("error inside onSlidingStart callback", error);
-                }
-              }}
             />
 
-            <Text style={styles.text4}>00:45</Text>
+            <Text style={styles.text4}>{posicaoTimerAudio.duration}</Text>
           </View>
 
           <View style={styles.linha} color={"white"}>
-            <TouchableOpacity>
+            {/* <TouchableOpacity>
               <Ionicons name="ios-repeat-outline" size={35} color={"white"} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={idVoltar}>
               <AntDesign name="banckward" color={"white"} size={30} />
             </TouchableOpacity>
 
@@ -196,13 +212,13 @@ export default function Audio() {
               )}
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={idTeste}>
               <AntDesign name="forward" color={"white"} size={30} />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            {/* <TouchableOpacity>
               <Text style={styles.text2}>1x</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </LinearGradient>
       ) : null}

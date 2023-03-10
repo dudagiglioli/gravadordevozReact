@@ -33,6 +33,7 @@ export default function TelaInicial() {
   const [visibleModal, setVisibleModal] = useState(false);
   const [visible, setVisible] = useState(false);
   const [gravar, setGravar] = useState(true);
+  const [nomeArquivo, setNomeArquivo] = useState("");
   const [tempograv, setTempoGrav] = useState({
     recordSecs: 0,
     recordTime: "00:00",
@@ -83,7 +84,9 @@ export default function TelaInicial() {
     audioRecorderPlayer.addRecordBackListener((e) => {
       setTempoGrav({
         recordSecs: e.currentPosition,
-        recordTime: audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)),
+        recordTime: audioRecorderPlayer.mmss(
+          Math.floor(e.currentPosition / 1000)
+        ),
       });
       return;
     });
@@ -95,7 +98,9 @@ export default function TelaInicial() {
     const Time = new Date().toLocaleTimeString();
 
     await sqlite.query(
-      `INSERT INTO audios (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "${tamanhoArq}", "${opcao}", "${tempograv.recordTime}", "") `
+      `INSERT INTO audios (title, data, hora, tamanho, tags, duracao, caminho) VALUES ("${nome}", "${date}", "${Time}", "${tamanhoArq}", "${opcao}", "${
+        tempograv.recordTime
+      }", "${RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`}") `
     );
     setVisibleModal(true);
     setVisible(true);
@@ -113,20 +118,20 @@ export default function TelaInicial() {
       recordTime: tempograv.recordTime,
     });
 
-    const nomeArquivo = Math.floor(Math.random() * 2000);
-
+    let data = new Date();
+    const nomeArquivo2 = Math.floor(data.getTime());
+    console.log("testee", nomeArquivo2);
     await RNFS.copyFile(
       result,
-      RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
+      RNFS.DocumentDirectoryPath + `${nomeArquivo2}.mp4`
     )
       .then(async (success) => {
         console.log("file moved!", success);
+        setNomeArquivo(nomeArquivo2);
         const { size } = await RNFS.stat(
-          RNFS.DocumentDirectoryPath + `${nomeArquivo}.mp4`
+          RNFS.DocumentDirectoryPath + `${nomeArquivo2}.mp4`
         );
         setTamanhoArq(size);
-
-        console.log(nomeArquivo);
       })
       .catch((err) => {
         console.log("Error: " + err.message);
