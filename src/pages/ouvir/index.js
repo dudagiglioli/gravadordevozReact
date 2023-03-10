@@ -99,15 +99,16 @@ export default function Audio() {
         currentPositionSec: e.currentPosition,
         currentDurationSec: e.duration,
         playTime: audioRecorderPlayer.mmss(
-          Math.floor(e.currentPosition / 1000)
+          Math.floor(e.currentPosition / 1000) //gravar em segundos
         ),
-        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)),
+        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)), //gravar em segundos
       });
 
       return;
     });
   }
 
+  //pausar o audio
   async function onPausePlay() {
     setRecording(false);
     await audioRecorderPlayer.pausePlayer();
@@ -130,37 +131,13 @@ export default function Audio() {
     getData();
   }, []);
 
-  // const changeAudio= async(context, select) => {
-  // plabackObj,
-  // currentAudioIndex,
-  // totalAudioCount,
-  // audioFiles,
-  // updateState
-  // } = context;
-  // try{
-  //   const {isLoaded} = await plabackObj.getStatusAsync()
-  //   const isLastAudio = currentAudioIndex + 1 === totalAudioCount;
-  //   const isFirstAudio = currentAudioIndex <= 0;
-  // }
-
-  // if (select == 'next'){
-  //   audio = audioFiles[currentAudioIndex +1]
-
-  //   if(isLoaded && !isLastAudio){
-
-  //   }
-  // const handleNext = async () =>{
-  //   const {isLoaded} = await context.recording.getStatusAsync();
-  //   const isLastAudio = context.id_audio + 1 ===
-  // }
-
   return (
     <View style={styles.container}>
       <View style={styles.meio}>
         <FlatList
           data={lista}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id_audio}
         />
       </View>
 
