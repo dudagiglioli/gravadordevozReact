@@ -139,6 +139,24 @@ const styles = StyleSheet.create({
     fontFamily: "SofiaSans-Light",
   },
 
+  buttonBack: {
+    height: "23%",
+    width: "300%",
+    borderRadius: 35,
+    justifyContent: "center",
+    marginTop: "30%",
+    right: "100%",
+  },
+
+  buttonDone: {
+    height: "23%",
+    width: "300%",
+    borderRadius: 35,
+    justifyContent: "center",
+    marginTop: "30%",
+    right: "100%",
+  },
+
   view: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -177,16 +195,41 @@ const styles = StyleSheet.create({
     height: 200,
   },
 
+  modalView2: {
+    flexDirection: "column",
+    marginHorizontal: 30,
+    justifyContent: "center",
+    backgroundColor: "white",
+    borderRadius: 25,
+    width: "100%",
+    height: "70%",
+    marginTop: "50%",
+  },
+
   buttonClose: {
     position: "absolute",
     left: 280,
     top: -10,
   },
 
+  buttonClose2: {
+    position: "absolute",
+    left: "88%",
+    marginTop: "160%",
+  },
+
   buttonCloseStyles: {
     borderRadius: 100,
     width: 30,
     height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  buttonCloseStyles2: {
+    borderRadius: 100,
+    width: 50,
+    height: 50,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -209,6 +252,14 @@ const styles = StyleSheet.create({
   text: {
     color: "#3B3355",
     fontSize: 20,
+    fontWeight: "700",
+    textAlign: "center",
+    fontFamily: "SofiaSans-Light",
+  },
+
+  textEditar: {
+    color: "#3B3355",
+    fontSize: 30,
     fontWeight: "700",
     textAlign: "center",
     fontFamily: "SofiaSans-Light",
@@ -243,6 +294,12 @@ const styles = StyleSheet.create({
     left: "5%",
   },
 
+  linhaeditar: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+
   backg: {
     backgroundColor: "#E6E8FA",
     width: "90%",
@@ -253,6 +310,10 @@ const styles = StyleSheet.create({
   backg2: {
     backgroundColor: "white",
   },
+
+  button:{
+    alignItems: "center"
+  }
 });
 
 export default styles;

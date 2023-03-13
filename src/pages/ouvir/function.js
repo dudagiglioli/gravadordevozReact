@@ -15,7 +15,12 @@ import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import sqlite from "../../classes/sqlite";
 import { Slider } from "@miblanchard/react-native-slider";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
+
+{
+  /* //slider com dois thumbs p editar o audio */
+}
 const borderWidth = 4;
 const trackMarkStyles = StyleSheet.create({
   activeMark: {
@@ -134,7 +139,7 @@ export function Item({
 
           <TouchableOpacity
             onPress={() => setModalEditar(true)}
-            style={{ backgroundColor: "red", height: 50, width: 50 }}
+            style={{ backgroundColor: "#F8EFFB", height: 30, width: 30 }}
           >
             <Feather name="scissors" color={"rgba(59, 51, 85, 1)"} size={20} />
 
@@ -151,52 +156,59 @@ export function Item({
                 onPress={() => setModalEditar(!modalEditar)}
               >
                 <View style={styles.modalOpen}>
-                  <View style={styles.modalView}>
+                  <View style={styles.modalView2}>
                     <TouchableOpacity
-                      style={styles.buttonClose}
+                      style={styles.buttonClose2}
                       onPress={() => setModalEditar(false)}
                     >
                       <LinearGradient
                         colors={["#BFCDE0", "#5D5D81"]}
-                        style={styles.buttonCloseStyles}
+                        style={styles.buttonCloseStyles2}
                       >
                         <AntDesign name="close" size={20} color="#fff" />
                       </LinearGradient>
                     </TouchableOpacity>
+                    <Text style={styles.textEditar}>Editar</Text>
 
-                    <Text style={styles.text}>Editar</Text>
+                    {/* //slider com dois thumbs p editar o audio */}
+                    <View>
+                      <SliderContainer caption="" sliderValue={[6, 18]}>
+                        <Slider
+                          animateTransitions
+                          maximumTrackTintColor="#d3d3d3"
+                          maximumValue={20}
+                          minimumTrackTintColor="#3B3355"
+                          minimumValue={4}
+                          step={2}
+                          thumbTintColor="#5D5D81"
+                        />
+                      </SliderContainer>
+                    </View>
 
-                    <View>{}</View>
+                    <TouchableOpacity>
+                        <Ionicons
+                          name="ios-stop-circle-outline"
+                          size={50}
+                          color={"black"}
+                          style={styles.button}
+                        />
+                      </TouchableOpacity>
 
-                    <View style={styles.linhadelete}>
+                    <View style={styles.linhaeditar}>
+
                       <TouchableOpacity>
                         <LinearGradient
                           colors={["#BFCDE0", "#5D5D81"]}
-                          style={styles.salvar}
+                          style={styles.buttonBack}
                         >
                           <Text style={styles.Text}>Back</Text>
                         </LinearGradient>
                       </TouchableOpacity>
 
-                      <SliderContainer
-                        caption="<Slider/> 2 thumbs, min, max, and custom tint"
-                        sliderValue={[6, 18]}
-                      >
-                        <Slider
-                          animateTransitions
-                          maximumTrackTintColor="#d3d3d3"
-                          maximumValue={20}
-                          minimumTrackTintColor="#1fb28a"
-                          minimumValue={4}
-                          step={2}
-                          thumbTintColor="#1a9274"
-                        />
-                      </SliderContainer>
-
                       <TouchableOpacity>
                         <LinearGradient
                           colors={["#BFCDE0", "#5D5D81"]}
-                          style={styles.salvar}
+                          style={styles.buttonDone}
                         >
                           <Text style={styles.Text}>Done</Text>
                         </LinearGradient>
