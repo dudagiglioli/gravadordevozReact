@@ -17,7 +17,6 @@ import sqlite from "../../classes/sqlite";
 import { Slider } from "@miblanchard/react-native-slider";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-
 {
   /* //slider com dois thumbs p editar o audio */
 }
@@ -125,7 +124,7 @@ export function Item({
         <View style={styles.p1}>
           <Text style={styles.l1}>{data.data}</Text>
           <Text style={styles.l2}>{data.hora}</Text>
-          <Text style={styles.l3}>{data.tamanho}</Text>
+          <Text style={styles.l3}>{data.tamanho}kb</Text>
         </View>
 
         <View style={styles.linha5}>
@@ -185,17 +184,20 @@ export function Item({
                       </SliderContainer>
                     </View>
 
-                    <TouchableOpacity>
+                    <View style={styles.editor}>
+                      <Text style={styles.timer2}>0:00</Text>
+
+                      <TouchableOpacity>
                         <Ionicons
                           name="ios-stop-circle-outline"
-                          size={50}
-                          color={"black"}
+                          size={100}
+                          color={"#3B3355"}
                           style={styles.button}
                         />
                       </TouchableOpacity>
+                    </View>
 
                     <View style={styles.linhaeditar}>
-
                       <TouchableOpacity>
                         <LinearGradient
                           colors={["#BFCDE0", "#5D5D81"]}

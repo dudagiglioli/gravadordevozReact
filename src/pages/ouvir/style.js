@@ -311,9 +311,24 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
 
-  button:{
-    alignItems: "center"
-  }
+  button: {
+    marginTop: "15%",
+    right: "25%"
+  },
+
+  editor: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+
+  timer2: {
+    marginTop: "13%",
+    fontFamily: "SofiaSans",
+    fontSize: 30,
+    fontWeight: "600",
+    color: "#5D5D81",
+    right: "40%"
+  },
 });
 
 export default styles;
