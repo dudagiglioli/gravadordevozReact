@@ -45,6 +45,9 @@ export default function Audio() {
         setLista={setLista}
         setExibirPLayer={setExibirPLayer}
         exibirPlayer={exibirPlayer}
+        recording={recording}
+        onPausePlay={onPausePlay}
+        onStartPlay={onStartPlay}
       />
     ); //chamar o player
   }

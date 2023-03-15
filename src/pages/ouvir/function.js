@@ -89,10 +89,15 @@ export function Item({
   setExibirPLayer,
   exibirPlayer,
   posicaoTimerAudio,
+  recording,
+  onPausePlay,
+  onStartPlay,
+  duracao
 }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [nome, setNome] = useState("");
+  const [cortarAudio, setCortarAudio] = useState(5);
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);
@@ -105,6 +110,7 @@ export function Item({
     );
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
+  
 
   // async function editar(){
   // }
@@ -138,7 +144,7 @@ export function Item({
 
           <TouchableOpacity
             onPress={() => setModalEditar(true)}
-            style={{ backgroundColor: "#F8EFFB", height: 30, width: 30 }}
+            style={{ backgroundColor: "#F8EFFB", height: 30, width: 30, }}
           >
             <Feather name="scissors" color={"rgba(59, 51, 85, 1)"} size={20} />
 
@@ -185,15 +191,26 @@ export function Item({
                     </View>
 
                     <View style={styles.editor}>
-                      <Text style={styles.timer2}>0:00</Text>
+                      <Text style={styles.timer2}>{data.duracao}</Text>
 
-                      <TouchableOpacity>
-                        <Ionicons
-                          name="ios-stop-circle-outline"
-                          size={100}
-                          color={"#3B3355"}
-                          style={styles.button}
-                        />
+                      <TouchableOpacity
+                        onPress={recording ? onPausePlay : onStartPlay}
+                      >
+                        {recording ? (
+                          <Ionicons
+                            name="ios-stop-circle-outline"
+                            size={100}
+                            color={"#3B3355"}
+                            style={styles.button}
+                          />
+                        ) : (
+                          <Ionicons
+                            name="play-circle-outline"
+                            size={100}
+                            color={"#3B3355"}
+                            style={styles.button}
+                          />
+                        )}
                       </TouchableOpacity>
                     </View>
 
@@ -211,6 +228,7 @@ export function Item({
                         <LinearGradient
                           colors={["#BFCDE0", "#5D5D81"]}
                           style={styles.buttonDone}
+                          onPress={data.duracao >= 10 ? cortarAudio : recording}
                         >
                           <Text style={styles.Text}>Done</Text>
                         </LinearGradient>
