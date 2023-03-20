@@ -14,7 +14,6 @@ import _ from "lodash";
 const audioRecorderPlayer = new AudioRecorderPlayer(); //p tocar o audio
 
 export default function Audio() {
-  const [playerState, setPlayerSatate] = useState(false);
   const [lista, setLista] = useState([]);
   const [exibirPlayer, setExibirPLayer] = useState(false); //chamar o player
   const navigation = useNavigation();
@@ -29,9 +28,9 @@ export default function Audio() {
     duration: "00:00",
   });
 
-  function toggleMusicPlay() {
-    setPlayerSatate(!playerState);
-  }
+  // function toggleMusicPlay() {
+  //   setPlayerSatate(!playerState);
+  // }
 
   //chamar o player
   function Exibir() {
@@ -115,12 +114,6 @@ export default function Audio() {
   async function onPausePlay() {
     setRecording(false);
     await audioRecorderPlayer.pausePlayer();
-  }
-
-  async function onStopPlay() {
-    console.log("onStopPlay");
-    audioRecorderPlayer.stopPlayer();
-    audioRecorderPlayer.removePlayBackListener();
   }
 
   useEffect(() => {

@@ -14,90 +14,59 @@ import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import sqlite from "../../classes/sqlite";
-import { Slider } from "@miblanchard/react-native-slider";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Trimmer from "react-native-trimmer";
+import AudioRecorderPlayer from "react-native-audio-recorder-player";
+import _ from "lodash";
 
-{
-  /* //slider com dois thumbs p editar o audio */
-}
-const borderWidth = 4;
-const trackMarkStyles = StyleSheet.create({
-  activeMark: {
-    borderColor: "red",
-    borderWidth,
-    left: -borderWidth / 2,
-  },
-  inactiveMark: {
-    borderColor: "grey",
-    borderWidth,
-    left: -borderWidth / 2,
-  },
-});
+const audioRecorderPlayer = new AudioRecorderPlayer(); //p tocar o audio
 
-const SliderContainer = ({
-  caption,
-  children,
-  sliderValue,
-  trackMarks,
-  vertical,
-}) => {
-  const [value, setValue] = useState(sliderValue);
-  let renderTrackMarkComponent;
-
-  if (trackMarks?.length && (!Array.isArray(value) || value?.length === 1)) {
-    renderTrackMarkComponent = (index) => {
-      const currentMarkValue = trackMarks[index];
-      const currentSliderValue =
-        value || (Array.isArray(value) && value[0]) || 0;
-      const style =
-        currentMarkValue > Math.max(currentSliderValue)
-          ? trackMarkStyles.activeMark
-          : trackMarkStyles.inactiveMark;
-      return <View style={style} />;
-    };
-  }
-
-  const renderChildren = () => {
-    return React.Children.map(children, (child) => {
-      if (!!child && child.type === Slider) {
-        return React.cloneElement(child, {
-          onValueChange: setValue,
-          renderTrackMarkComponent,
-          trackMarks,
-          value,
-        });
-      }
-
-      return child;
-    });
-  };
-
-  return (
-    <View style={styles.sliderContainer}>
-      <View style={styles.titleContainer}>
-        <Text>{caption}</Text>
-        <Text>{Array.isArray(value) ? value.join(" - ") : value}</Text>
-      </View>
-      {renderChildren()}
-    </View>
-  );
-};
 //atualizar lista
-export function Item({
-  data,
-  setLista,
-  setExibirPLayer,
-  exibirPlayer,
-  posicaoTimerAudio,
-  recording,
-  onPausePlay,
-  onStartPlay,
-  duracao
-}) {
+export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [nome, setNome] = useState("");
-  const [cortarAudio, setCortarAudio] = useState(5);
+  const [state, setState] = useState({
+    trimmerLeftHandlePosition: 0,
+    trimmerRightHandlePosition: 13,
+  });
+  const [posicaoTimerAudio, setPosicaoTimerAudio] = useState({
+    currentPositionSec: 1,
+    currentDurationSec: 20,
+    playTime: "00:00",
+    duration: "00:00",
+  });
+  const [recording, setRecording] = useState(false);
+
+  async function onStartPlay() {
+    setRecording(true);
+    const msg = await audioRecorderPlayer.startPlayer(data.caminho);
+    audioRecorderPlayer.addPlayBackListener((e) => {
+      setPosicaoTimerAudio({
+        currentPositionSec: e.currentPosition,
+        currentDurationSec: e.duration,
+        playTime: audioRecorderPlayer.mmss(
+          Math.floor(e.currentPosition / 1000) //gravar em segundos
+        ),
+        duration: audioRecorderPlayer.mmss(Math.floor(e.duration / 1000)), //gravar em segundos
+      });
+
+      return;
+    });
+  }
+
+  //pausar o audio
+  async function onPausePlay() {
+    setRecording(false);
+    await audioRecorderPlayer.pausePlayer();
+  }
+
+  async function onHandleChange({ leftPosition, rightPosition }) {
+    setState({
+      trimmerRightHandlePosition: rightPosition,
+      trimmerLeftHandlePosition: leftPosition,
+    });
+  }
 
   async function deleteId(id_audio) {
     await sqlite.query(`DELETE FROM audios WHERE id_audio = ${id_audio}`);
@@ -110,7 +79,6 @@ export function Item({
     );
     setLista(await sqlite.query("SELECT * FROM audios")); //atualizar lista
   }
-  
 
   // async function editar(){
   // }
@@ -144,7 +112,7 @@ export function Item({
 
           <TouchableOpacity
             onPress={() => setModalEditar(true)}
-            style={{ backgroundColor: "#F8EFFB", height: 30, width: 30, }}
+            style={{ backgroundColor: "#F8EFFB", height: 30, width: 30 }}
           >
             <Feather name="scissors" color={"rgba(59, 51, 85, 1)"} size={20} />
 
@@ -176,22 +144,23 @@ export function Item({
                     <Text style={styles.textEditar}>Editar</Text>
 
                     {/* //slider com dois thumbs p editar o audio */}
-                    <View>
-                      <SliderContainer caption="" sliderValue={[6, 18]}>
-                        <Slider
-                          animateTransitions
-                          maximumTrackTintColor="#d3d3d3"
-                          maximumValue={20}
-                          minimumTrackTintColor="#3B3355"
-                          minimumValue={4}
-                          step={2}
-                          thumbTintColor="#5D5D81"
-                        />
-                      </SliderContainer>
+                    <View style={styles.viewtrimmer}>
+                      <Trimmer
+                        onHandleChange={onHandleChange}
+                        totalDuration={posicaoTimerAudio.currentDurationSec}
+                        trimmerLeftHandlePosition={
+                          state.trimmerLeftHandlePosition
+                        }
+                        trimmerRightHandlePosition={
+                          state.trimmerRightHandlePosition
+                        }
+                      />
                     </View>
 
                     <View style={styles.editor}>
-                      <Text style={styles.timer2}>{data.duracao}</Text>
+                      <Text style={styles.timer2}>
+                        {posicaoTimerAudio.playTime}
+                      </Text>
 
                       <TouchableOpacity
                         onPress={recording ? onPausePlay : onStartPlay}
@@ -212,6 +181,8 @@ export function Item({
                           />
                         )}
                       </TouchableOpacity>
+
+                      <Text style={styles.timer2}>{data.duracao}</Text>
                     </View>
 
                     <View style={styles.linhaeditar}>
