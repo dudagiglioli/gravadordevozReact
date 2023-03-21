@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity,
   Modal,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback, //serve para a pag fechar sozinha
   TextInput,
   StyleSheet,
 } from "react-native";
@@ -29,6 +29,8 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
   const [state, setState] = useState({
     trimmerLeftHandlePosition: 0,
     trimmerRightHandlePosition: 13,
+    scrubberPosition: 10000,
+    scrubInterval: 50,
   });
   const [posicaoTimerAudio, setPosicaoTimerAudio] = useState({
     currentPositionSec: 1,
@@ -66,6 +68,30 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
       trimmerRightHandlePosition: rightPosition,
       trimmerLeftHandlePosition: leftPosition,
     });
+  }
+
+  async function playScrubber() {
+    setState({ recording: true });
+
+    async function scrubberInterval({ setInterval }) {
+      setState({
+        scrubberPosition: state.scrubberPosition + state.scrubInterval,
+      });
+    }
+    state.scrubInterval;
+  }
+
+  async function pauseScrubber() {
+    clearInterval(state.scrubberInterval);
+
+    setState({
+      recording: false,
+      scrubberPosition: state.trimmerLeftHandlePosition,
+    });
+  }
+
+  async function onScrubbingComplete({ newValue }) {
+    setState({ recording: false, scrubberPosition: newValue });
   }
 
   async function deleteId(id_audio) {
@@ -125,9 +151,6 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                 modalEditar(!setModalEditar);
               }}
             >
-              <TouchableWithoutFeedback
-                onPress={() => setModalEditar(!modalEditar)}
-              >
                 <View style={styles.modalOpen}>
                   <View style={styles.modalView2}>
                     <TouchableOpacity
@@ -141,18 +164,41 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                         <AntDesign name="close" size={20} color="#fff" />
                       </LinearGradient>
                     </TouchableOpacity>
+                    
                     <Text style={styles.textEditar}>Editar</Text>
 
-                    {/* //slider com dois thumbs p editar o audio */}
+                    {/* trimmer p editar o audio */}
                     <View style={styles.viewtrimmer}>
+                      {/* {recording
+                      ? <TouchableOpacity title="Pause" color="#f638dc" onPress={pauseScrubber}/>
+                      : <TouchableOpacity title="Play" color="#f638dc" onPress={playScrubber}/>
+                  }
+                   */}
+
                       <Trimmer
                         onHandleChange={onHandleChange}
+                        // totalDuration={6000}
                         totalDuration={posicaoTimerAudio.currentDurationSec}
                         trimmerLeftHandlePosition={
                           state.trimmerLeftHandlePosition
                         }
                         trimmerRightHandlePosition={
                           state.trimmerRightHandlePosition
+                        }
+                        tintColor="#5D5D81"
+                        trackBackgroundColor="#BFCDE0"
+                        trackBorderColor="#BFCDE0,"
+                        scrubberColor="#3B3355"
+                        scrubberPosition={state.scrubberPosition}
+                        onScrubbingComplete={onScrubbingComplete}
+                        onLeftHandlePressIn={() =>
+                          console.log("onLeftHandlePressIn")
+                        }
+                        onRightHandlePressIn={() =>
+                          console.log("onRightHandlePressIn")
+                        }
+                        onScrubberPressIn={() =>
+                          console.log("onScrubberPressIn")
                         }
                       />
                     </View>
@@ -182,7 +228,7 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                         )}
                       </TouchableOpacity>
 
-                      <Text style={styles.timer2}>{data.duracao}</Text>
+                      <Text style={styles.timer3}>{data.duracao}</Text>
                     </View>
 
                     <View style={styles.linhaeditar}>
@@ -199,7 +245,6 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                         <LinearGradient
                           colors={["#BFCDE0", "#5D5D81"]}
                           style={styles.buttonDone}
-                          onPress={data.duracao >= 10 ? cortarAudio : recording}
                         >
                           <Text style={styles.Text}>Done</Text>
                         </LinearGradient>
@@ -207,7 +252,7 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                     </View>
                   </View>
                 </View>
-              </TouchableWithoutFeedback>
+             
             </Modal>
           </TouchableOpacity>
         </View>
@@ -228,9 +273,7 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
             setModalVisibleIcon(!setModalVisibleIcon);
           }}
         >
-          <TouchableWithoutFeedback
-            onPress={() => setModalVisibleIcon(!modalVisibleIcon)}
-          >
+      
             <View style={styles.modalOpen}>
               <View style={styles.modalView}>
                 <TouchableOpacity
@@ -277,7 +320,6 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                 </View>
               </View>
             </View>
-          </TouchableWithoutFeedback>
         </Modal>
       </TouchableOpacity>
     </View>

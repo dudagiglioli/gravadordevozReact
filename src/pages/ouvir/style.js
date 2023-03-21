@@ -314,6 +314,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: "15%",
     right: "25%",
+    left: "20%",
   },
 
   editor: {
@@ -327,10 +328,16 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "600",
     color: "#5D5D81",
-    right: "40%",
   },
 
-
+  timer3: {
+    marginTop: "13%",
+    fontFamily: "SofiaSans",
+    fontSize: 30,
+    fontWeight: "600",
+    color: "#5D5D81",
+    left: "30%",
+  },
 });
 
 export default styles;
