@@ -199,9 +199,9 @@ export default function TelaInicial() {
                 setVisibleModal(!visibleModal);
               }}
             >
-              <TouchableWithoutFeedback
+              {/* <TouchableWithoutFeedback
                 onPress={() => setVisibleModal(!visibleModal)}
-              >
+              > */}
                 <View style={styles.modal}>
                   <View style={styles.view}>
                     <Text style={styles.salvarGrav}>Salvar Gravação</Text>
@@ -289,7 +289,6 @@ export default function TelaInicial() {
                     </View>
                   </View>
                 </View>
-              </TouchableWithoutFeedback>
             </Modal>
 
             <LinearGradient

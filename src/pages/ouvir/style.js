@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 5,
     justifyContent: "space-around",
-    alignItems: "center",
+    // alignItems: "center",
     marginTop: "10%",
   },
 

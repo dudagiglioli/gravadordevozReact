@@ -151,108 +151,94 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
                 modalEditar(!setModalEditar);
               }}
             >
-                <View style={styles.modalOpen}>
-                  <View style={styles.modalView2}>
-                    <TouchableOpacity
-                      style={styles.buttonClose2}
-                      onPress={() => setModalEditar(false)}
+              <View style={styles.modalOpen}>
+                <View style={styles.modalView2}>
+                  <TouchableOpacity
+                    style={styles.buttonClose2}
+                    onPress={() => setModalEditar(false)}
+                  >
+                    <LinearGradient
+                      colors={["#BFCDE0", "#5D5D81"]}
+                      style={styles.buttonCloseStyles2}
                     >
+                      <AntDesign name="close" size={20} color="#fff" />
+                    </LinearGradient>
+                  </TouchableOpacity>
+
+                  <Text style={styles.textEditar}>Editar</Text>
+
+                  {/* trimmer p editar o audio */}
+                  <View style={styles.viewtrimmer}>
+                    <Trimmer
+                      onHandleChange={onHandleChange}
+                      // totalDuration={6000}
+                      totalDuration={posicaoTimerAudio.currentDurationSec}
+                      trimmerLeftHandlePosition={
+                        state.trimmerLeftHandlePosition
+                      }
+                      trimmerRightHandlePosition={
+                        state.trimmerRightHandlePosition
+                      }
+                      tintColor="#5D5D81"
+                      trackBackgroundColor="#BFCDE0"
+                      trackBorderColor="#BFCDE0,"
+                      scrubberColor="#3B3355"
+                      scrubberPosition={state.scrubberPosition}
+                      onScrubbingComplete={onScrubbingComplete}
+                      maximumZoomLevel={50}
+                      initialZoomValue={0.85}
+                    />
+                  </View>
+
+                  <View style={styles.editor}>
+                    <Text style={styles.timer2}>
+                      {posicaoTimerAudio.playTime}
+                    </Text>
+
+                    <TouchableOpacity
+                      onPress={recording ? onPausePlay : onStartPlay}
+                    >
+                      {recording ? (
+                        <Ionicons
+                          name="ios-stop-circle-outline"
+                          size={100}
+                          color={"#3B3355"}
+                          style={styles.button}
+                        />
+                      ) : (
+                        <Ionicons
+                          name="play-circle-outline"
+                          size={100}
+                          color={"#3B3355"}
+                          style={styles.button}
+                        />
+                      )}
+                    </TouchableOpacity>
+
+                    <Text style={styles.timer3}>{data.duracao}</Text>
+                  </View>
+
+                  <View style={styles.linhaeditar}>
+                    <TouchableOpacity>
                       <LinearGradient
                         colors={["#BFCDE0", "#5D5D81"]}
-                        style={styles.buttonCloseStyles2}
+                        style={styles.buttonBack}
                       >
-                        <AntDesign name="close" size={20} color="#fff" />
+                        <Text style={styles.Text}>Back</Text>
                       </LinearGradient>
                     </TouchableOpacity>
-                    
-                    <Text style={styles.textEditar}>Editar</Text>
 
-                    {/* trimmer p editar o audio */}
-                    <View style={styles.viewtrimmer}>
-                      {/* {recording
-                      ? <TouchableOpacity title="Pause" color="#f638dc" onPress={pauseScrubber}/>
-                      : <TouchableOpacity title="Play" color="#f638dc" onPress={playScrubber}/>
-                  }
-                   */}
-
-                      <Trimmer
-                        onHandleChange={onHandleChange}
-                        // totalDuration={6000}
-                        totalDuration={posicaoTimerAudio.currentDurationSec}
-                        trimmerLeftHandlePosition={
-                          state.trimmerLeftHandlePosition
-                        }
-                        trimmerRightHandlePosition={
-                          state.trimmerRightHandlePosition
-                        }
-                        tintColor="#5D5D81"
-                        trackBackgroundColor="#BFCDE0"
-                        trackBorderColor="#BFCDE0,"
-                        scrubberColor="#3B3355"
-                        scrubberPosition={state.scrubberPosition}
-                        onScrubbingComplete={onScrubbingComplete}
-                        onLeftHandlePressIn={() =>
-                          console.log("onLeftHandlePressIn")
-                        }
-                        onRightHandlePressIn={() =>
-                          console.log("onRightHandlePressIn")
-                        }
-                        onScrubberPressIn={() =>
-                          console.log("onScrubberPressIn")
-                        }
-                      />
-                    </View>
-
-                    <View style={styles.editor}>
-                      <Text style={styles.timer2}>
-                        {posicaoTimerAudio.playTime}
-                      </Text>
-
-                      <TouchableOpacity
-                        onPress={recording ? onPausePlay : onStartPlay}
+                    <TouchableOpacity>
+                      <LinearGradient
+                        colors={["#BFCDE0", "#5D5D81"]}
+                        style={styles.buttonDone}
                       >
-                        {recording ? (
-                          <Ionicons
-                            name="ios-stop-circle-outline"
-                            size={100}
-                            color={"#3B3355"}
-                            style={styles.button}
-                          />
-                        ) : (
-                          <Ionicons
-                            name="play-circle-outline"
-                            size={100}
-                            color={"#3B3355"}
-                            style={styles.button}
-                          />
-                        )}
-                      </TouchableOpacity>
-
-                      <Text style={styles.timer3}>{data.duracao}</Text>
-                    </View>
-
-                    <View style={styles.linhaeditar}>
-                      <TouchableOpacity>
-                        <LinearGradient
-                          colors={["#BFCDE0", "#5D5D81"]}
-                          style={styles.buttonBack}
-                        >
-                          <Text style={styles.Text}>Back</Text>
-                        </LinearGradient>
-                      </TouchableOpacity>
-
-                      <TouchableOpacity>
-                        <LinearGradient
-                          colors={["#BFCDE0", "#5D5D81"]}
-                          style={styles.buttonDone}
-                        >
-                          <Text style={styles.Text}>Done</Text>
-                        </LinearGradient>
-                      </TouchableOpacity>
-                    </View>
+                        <Text style={styles.Text}>Done</Text>
+                      </LinearGradient>
+                    </TouchableOpacity>
                   </View>
                 </View>
-             
+              </View>
             </Modal>
           </TouchableOpacity>
         </View>
@@ -273,53 +259,52 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
             setModalVisibleIcon(!setModalVisibleIcon);
           }}
         >
-      
-            <View style={styles.modalOpen}>
-              <View style={styles.modalView}>
-                <TouchableOpacity
-                  style={styles.buttonClose}
-                  onPress={() => setModalVisibleIcon(false)}
+          <View style={styles.modalOpen}>
+            <View style={styles.modalView}>
+              <TouchableOpacity
+                style={styles.buttonClose}
+                onPress={() => setModalVisibleIcon(false)}
+              >
+                <LinearGradient
+                  colors={["#BFCDE0", "#5D5D81"]}
+                  style={styles.buttonCloseStyles}
                 >
+                  <AntDesign name="close" size={20} color="#fff" />
+                </LinearGradient>
+              </TouchableOpacity>
+
+              <Text style={styles.text}>Propriedades</Text>
+
+              <TextInput
+                onChangeText={(tex) => {
+                  setNome(tex);
+                }}
+                style={styles.input}
+                placeholderTextColor={"#3B3355"}
+                placeholder="Nome"
+              />
+
+              <View style={styles.linhadelete}>
+                <TouchableOpacity onPress={() => UpdateName(data.id_audio)}>
                   <LinearGradient
                     colors={["#BFCDE0", "#5D5D81"]}
-                    style={styles.buttonCloseStyles}
+                    style={styles.salvar}
                   >
-                    <AntDesign name="close" size={20} color="#fff" />
+                    <Text style={styles.Text}>Editar</Text>
                   </LinearGradient>
                 </TouchableOpacity>
 
-                <Text style={styles.text}>Propriedades</Text>
-
-                <TextInput
-                  onChangeText={(tex) => {
-                    setNome(tex);
-                  }}
-                  style={styles.input}
-                  placeholderTextColor={"#3B3355"}
-                  placeholder="Nome"
-                />
-
-                <View style={styles.linhadelete}>
-                  <TouchableOpacity onPress={() => UpdateName(data.id_audio)}>
-                    <LinearGradient
-                      colors={["#BFCDE0", "#5D5D81"]}
-                      style={styles.salvar}
-                    >
-                      <Text style={styles.Text}>Editar</Text>
-                    </LinearGradient>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity onPress={() => deleteId(data.id_audio)}>
-                    <LinearGradient
-                      colors={["#BFCDE0", "#5D5D81"]}
-                      style={styles.salvar}
-                    >
-                      <AntDesign name="delete" size={25} color="#fff" />
-                    </LinearGradient>
-                  </TouchableOpacity>
-                </View>
+                <TouchableOpacity onPress={() => deleteId(data.id_audio)}>
+                  <LinearGradient
+                    colors={["#BFCDE0", "#5D5D81"]}
+                    style={styles.salvar}
+                  >
+                    <AntDesign name="delete" size={25} color="#fff" />
+                  </LinearGradient>
+                </TouchableOpacity>
               </View>
             </View>
+          </View>
         </Modal>
       </TouchableOpacity>
     </View>
