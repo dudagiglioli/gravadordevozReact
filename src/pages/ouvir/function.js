@@ -22,7 +22,13 @@ import _ from "lodash";
 const audioRecorderPlayer = new AudioRecorderPlayer(); //p tocar o audio
 
 //atualizar lista
-export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
+export function Item({
+  data,
+  setLista,
+  setExibirPLayer,
+  exibirPlayer,
+  nomeArquivo,
+}) {
   const [modalVisibleIcon, setModalVisibleIcon] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [nome, setNome] = useState("");
@@ -108,7 +114,6 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
 
   // async function editar(){
   // }
-
   return (
     <View>
       <TouchableOpacity
@@ -136,11 +141,23 @@ export function Item({ data, setLista, setExibirPLayer, exibirPlayer }) {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={() => setModalEditar(true)}
-            style={{ backgroundColor: "#F8EFFB", height: 30, width: 30 }}
-          >
-            <Feather name="scissors" color={"rgba(59, 51, 85, 1)"} size={20} />
+          <TouchableOpacity onPress={() => setModalEditar(true)}>
+            <View
+              style={{
+                alignItems: "center",
+                borderWidth: 2,
+                borderColor: "#5D5D81",
+                width: 30,
+                borderRadius: 10,
+                height: 25,
+              }}
+            >
+              <Feather
+                name="scissors"
+                color={"rgba(59, 51, 85, 1)"}
+                size={20}
+              />
+            </View>
 
             <Modal
               animationType="fade"
